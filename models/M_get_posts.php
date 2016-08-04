@@ -1,6 +1,19 @@
 <?php 
 require_once './incl/SPDO.class.php';
 
+
+/**
+   * get_posts
+   * retourne un tableau contenant certains posts (selection en fonction des parametres)
+   *
+   * @param $offset : int qui définit un décalage dans la selection des posts (). ex : $offset=2 les 2 premiers posts (les plus récents) ne seront pas inclus
+   * @param $limit : int qui définit le nombre max de posts a retourner
+   * @param $semestre : str permettant de réduire la selection aux articles dont post_date est inclu dans un semestre.
+   * La chaine doit être de la forme [aApP][0-9]{2} par ex : A12, p02. 
+   * Debut de l'automne au 01-08 (00:00:00:000) et fin au 31-01 (23:59:59:999)
+   * Debut du printemps au 01-02 (00:00:00:000) et fin au 31-07 (23:59:59:999)
+   * @return $posts : tableau contenant les posts sélectionnés
+   */
 function get_posts($offset, $limit, $semestre = NULL){
 	$offset = (int) $offset; // offset : numero de post a partir duquel on retourne les posts
 	$limit = (int) $limit; // limit: nombre de posts a recuperer au max
@@ -27,7 +40,17 @@ function get_posts($offset, $limit, $semestre = NULL){
 	}
 }
 
-
+/**
+   * semestre_to_datetime
+   * retourne un tableau avec la date (format str) de début et de fin du semestre passé en parametre
+   *
+   * @param $semestre : str de la forme [aApP][0-9]{2} par ex : A12, p02. 
+   * Debut de l'automne au 01-08 (00:00:00:000) et fin au 31-01 (23:59:59:999)
+   * Debut du printemps au 01-02 (00:00:00:000) et fin au 31-07 (23:59:59:999)
+   * 70 a 99 =» 1970 a 1999
+   * 00 a 69 =» 2000 a 2069
+   * @return $array : tableau contenant la date de début et la date de fin au format str.
+   */
 function semestre_to_datetime($semestre){
 	$param= array($semestre);
 	if (preg_match("/^[aApP]{1}[0-9]{2}$/", $semestre)){ // verification de l'argument
@@ -53,6 +76,5 @@ function semestre_to_datetime($semestre){
 		}
 
 		return array ($debut, $fin);
-
 	}
 }

@@ -14,7 +14,7 @@
 
         <h1> Larsen fête ses 30 ans </h1>
         <h2> carousel d'images </h2>
- 
+
 <?php
 if (is_array($posts) || is_object($posts)){ // evite les bugs en cas de résultat vide de la requete SQL, comme si par d'articles rédigés dans la periode demandée par ex 
     foreach($posts as $post){
