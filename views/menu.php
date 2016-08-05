@@ -63,8 +63,8 @@
                 echo "<li><a href=\"index.php?section=logout\"> "; echo $_SESSION['user']; echo " logout </a></li>";
               }
               else echo "<li><a href=\"index.php?section=login\">Connexion CAS</a>";
-              if ((isset($_SESSION['user'])) and ($_SESSION['role']=="President" or $_SESSION['role']=="Vice-president" or $_SESSION['role']=="Resp Communication" or $_SESSION['role']=="Resp Info" or $_SESSION['role']=="Bureau")){
-                echo "<li><a href=\"index.php?section=adm\">Administration</a></li>";
+              if ((isset($_SESSION['user'])) and ($_SESSION['role']=="President" or $_SESSION['role']=="Vice-president" or $_SESSION['role']=="Resp Communication" or $_SESSION['role']=="Resp Info")){
+                echo "<li><a href=\"adm/index.php\">Administration</a></li>";
               }
             ?>
           </ul><br/><br/><br/>
