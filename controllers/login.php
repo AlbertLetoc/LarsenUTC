@@ -42,5 +42,3 @@ function get_role($user, $asso){
 	fclose($fd);
 	return $role;
 }
-
-?>

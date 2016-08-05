@@ -1,7 +1,29 @@
 <?php
 include_once ('./models/M_get_posts.php'); // inclusion du modele
 
-$posts = get_posts(0,15); // definit le nombre d'articles a afficher en index
+
+if ((!isset($_GET['sem'])) and (!isset($_GET['annee']))){ // retourne les 100 derniers posts
+	$posts = get_posts(0,100); // definit le nombre d'articles a afficher en index
+}
+elseif(isset($_GET['annee'])){ // retourne les posts de l'annee passée en parametre
+	if(preg_match("/^[0-9]{4}$/",$_GET['annee'])){ //securisation de la variable
+		$annee = substr($_GET['annee'],2,2);
+		$postsP = get_posts(0,50,"P".$annee);
+		$postsA = get_posts(0,50,"A".$annee);
+		$posts = array_merge($postsA,$postsP);
+	}
+	else{
+		header('Location: ./404.php');
+	}
+}
+elseif(isset($_GET['sem'])){ // retourne les posts du semestre passé en parametre
+	if(preg_match("/^[aApP]{1}[0-9]{2}$/",$_GET['sem'])){ //securisation de la variable
+		$posts = get_posts(0,50,$_GET['sem']);
+	}
+	else{
+		header('Location: ./404.php');
+	}
+}
 //securisation de l'affichage
 /*
 $post est une copie du tableau $posts créée par le foreach. $post n'existe qu'à l'intérieur du foreach, il est ensuite supprimé. 
