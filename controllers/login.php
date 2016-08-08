@@ -9,7 +9,7 @@
 			$_SESSION['ticket'] = $_GET['ticket'];
 			$_SESSION['role'] = get_role($_SESSION['user'],"larsen");
 			
-			//header('Location: ./');
+			header('Location: ./');
 		}
 		else CAS::login();
 	}
