@@ -1,4 +1,6 @@
 <?php
+//source : https://github.com/Robhub/trocutc
+
 class xmlToArrayParser { 
   /** The array created by the parser can be assigned to any variable: $anyVarArr = $domObj->array.*/ 
   public  $array = array(); 

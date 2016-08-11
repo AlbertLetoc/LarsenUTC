@@ -35,7 +35,7 @@ function get_role($user, $asso){
 	}
 
 	$regex="/{\"login\":\"".$user."\",\"role\":\"(.{6,40})\",\"/"; //paramétrage de la regex avec l'user a trouver dans le tableau json
-	if (preg_match($regex, $tableau, $matches)){ //si $user est dans larsen on extrait le role
+	if (preg_match($regex, $tableau, $matches)){ //si $user est dans l'asso on extrait le role
 		$role=preg_replace("/\\\/", "", preg_replace("/[a-z]{1}0{2}e9/", "e",$matches[1])); // fix du probleme d'encodage du é. impossible a faire en un seul preg_replace.... car preg_replace ne supporte pas les caracteres UTF-8 ex: \\u00e9
 		$role=preg_replace("/\\\/", "", preg_replace("/[a-z]{1}0{2}e8/", "e",$role)); // fix du probleme d'encodage du è.
 	}
