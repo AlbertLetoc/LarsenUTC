@@ -14,7 +14,6 @@
 
         <h1> Larsen fête ses 30 ans </h1>
 
-
 <?php
 // affichage du carousel uniquement sur la page d'accueil
 if((!isset($_GET['sem'])) and (!isset($_GET['annee']))){ echo "<h2> carousel d'images </h2>";} 
