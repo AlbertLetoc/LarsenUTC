@@ -43,17 +43,6 @@ CREATE TABLE `comments` (
   `comment_content` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
---
--- Vider la table avant d'insérer `comments`
---
-
-TRUNCATE TABLE `comments`;
---
--- Contenu de la table `comments`
---
-
-INSERT INTO `comments` (`comment_ID`, `comment_post_ID`, `comment_author`, `comment_date`, `comment_status`, `comment_content`) VALUES
-(1, 1, 'JC', '2016-07-28 00:00:00', 'published', 'de la balle !!');
 
 -- --------------------------------------------------------
 
@@ -74,12 +63,6 @@ CREATE TABLE `posts` (
   `post_content` longtext NOT NULL COMMENT 'contenu du post'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
---
--- Vider la table avant d'insérer `posts`
---
-
-TRUNCATE TABLE `posts`;
-
 
 -- --------------------------------------------------------
 
@@ -97,19 +80,6 @@ CREATE TABLE `posts_relationships` (
   `taxonomy_ID` bigint(20) NOT NULL COMMENT 'ID de la taxonomy liée au post'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
---
--- Vider la table avant d'insérer `posts_relationships`
---
-
-TRUNCATE TABLE `posts_relationships`;
---
--- Contenu de la table `posts_relationships`
---
-
-INSERT INTO `posts_relationships` (`relationships_ID`, `post_ID`, `taxonomy_ID`) VALUES
-(1, 1, 2),
-(2, 2, 1),
-(3, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -126,22 +96,6 @@ CREATE TABLE `taxonomy` (
   `taxonomy_name` varchar(30) NOT NULL COMMENT 'nom de la taxonomy'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='la taxonomy représente les tags d''un post';
 
---
--- Vider la table avant d'insérer `taxonomy`
---
-
-TRUNCATE TABLE `taxonomy`;
---
--- Contenu de la table `taxonomy`
---
-
-INSERT INTO `taxonomy` (`taxonomy_ID`, `taxonomy_name`) VALUES
-(1, 'evenements'),
-(2, 'Orga asso');
-
---
--- Index pour les tables exportées
---
 
 --
 -- Index pour la table `comments`
