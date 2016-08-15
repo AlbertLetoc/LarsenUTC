@@ -1,6 +1,4 @@
-
 <?php
-
 // source : https://github.com/Robhub/trocutc
 require_once 'xmlToArrayParser.class.php';
 class CAS

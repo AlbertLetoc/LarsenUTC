@@ -14,27 +14,43 @@ require_once './incl/SPDO.class.php';
    * Debut du printemps au 01-02 (00:00:00:000) et fin au 31-07 (23:59:59:999)
    * @return $posts : retourne un tableau contenant une jointure left entre la table posts et comments sur la periode spécifiée
    */
-function get_posts($offset, $limit, $semestre = NULL){
+function get_posts($offset = 0, $limit = 50, $dates){
 	$offset = (int) $offset; // offset : numero de post a partir duquel on retourne les posts
 	$limit = (int) $limit; // limit: nombre de posts a recuperer au max
-	$db=SPDO::getSPDO();
 
-	if ($semestre==NULL){ //si pas de semestre specifié pas de restriction
-		// selection des posts
-		$req = $db->prepare('SELECT post_ID, post_title, post_date, post_content, post_author, comment_content, comment_author, comment_date FROM posts LEFT JOIN comments ON posts.post_ID = comments.comment_post_ID ORDER BY post_date DESC, comment_date ASC LIMIT :offset, :limit');
-	}
-	elseif(preg_match("/^[aApP]{1}[0-9]{2}$/", $semestre)){ //si semestre specifié restriction du select sur les dates du semestre
-		$dates=semestre_to_datetime($semestre);
-		$req = $db->prepare('SELECT post_ID, post_title, post_date, post_content, post_author, comment_content, comment_author, comment_date FROM posts LEFT JOIN comments ON posts.post_ID = comments.comment_post_ID WHERE post_date BETWEEN :debut AND :fin ORDER BY post_date DESC, comment_date ASC LIMIT :offset, :limit');
-		$req->bindParam(':debut', $dates[0], PDO::PARAM_STR);
-		$req->bindParam(':fin', $dates[1], PDO::PARAM_STR);
-	}
+	$db = SPDO::getSPDO();
+	$req = $db->prepare('SELECT post_ID, post_title, post_date, post_content, post_author FROM posts WHERE post_date BETWEEN :debut AND :fin ORDER BY post_date DESC, post_ID ASC LIMIT :offset, :limit');
+	$req->bindParam(':debut', (isset($dates['debut'])) ? $dates['debut'] : DATE_D_DEBUT, PDO::PARAM_STR);
+	$req->bindParam(':fin', (isset($dates['fin'])) ? $dates['fin'] : DATE_D_FIN, PDO::PARAM_STR);
 	$req->bindParam(':offset', $offset, PDO::PARAM_INT);
 	$req->bindParam(':limit', $limit, PDO::PARAM_INT);
 	$req->execute();
 	$posts = $req->fetchAll();
-
 	return $posts;
+}
+
+function get_comments($offset = 0, $limit = 50, $dates){
+	$db = SPDO::getSPDO();
+	$req = $db->prepare('SELECT comment_ID, comment_post_ID, comment_author, comment_date, comment_status, comment_content, post_date FROM comments, posts WHERE comment_post_ID=post_ID AND post_date BETWEEN :debut AND :fin ORDER BY post_date DESC, comment_ID ASC LIMIT :offset, :limit');
+	$req->bindParam(':debut', (isset($dates[0])) ? $dates[0] : DATE_D_DEBUT, PDO::PARAM_STR);
+	$req->bindParam(':fin', (isset($dates[1])) ? $dates[1] : DATE_D_FIN, PDO::PARAM_STR);
+	$req->bindParam(':offset', $offset, PDO::PARAM_INT);
+	$req->bindParam(':limit', $limit, PDO::PARAM_INT);
+	$req->execute();
+	$comments = $req->fetchAll();
+	return $comments;
+}
+
+function get_pagination($per_page = 2, $dates){
+	$pager_options = array(
+		'mode' => 'Sliding',
+		'perPage' => $per_page,
+		'delta' => 2);
+	$deb = isset($dates['debut']) ? $dates['debut'] : DATE_D_DEBUT;
+	$fin = isset($dates['fin']) ? $dates['fin'] : DATE_D_FIN;
+	$query = 'SELECT post_ID, post_title, post_date, post_content, post_author FROM posts WHERE post_date BETWEEN "'.$deb.'" AND "'.$fin.'" ORDER BY post_date DESC, post_ID ASC';
+	$paged_data = Pager_Wrapper_SPDO($query, $pager_options);
+	return $paged_data;
 }
 
 /**
@@ -72,6 +88,6 @@ function semestre_to_datetime($semestre){
 			$fin=(string)$annee."-07-31"; //définit le jour de fin du semestre
 		}
 
-		return array ($debut, $fin);
+		return array ('debut'=>$debut, 'fin'=>$fin);
 	}
 }
