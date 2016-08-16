@@ -9,6 +9,8 @@ set_include_path(get_include_path() . ";C:\wamp64\www\Larsen\LarsenUTC\incl\Pear
 define ('DATE_D_DEBUT' , "1970-01-01 00:00:00:000");
 define ('DATE_D_FIN' , "2069-12-31 23:59:59:999");
 
+$db = SPDO::getSPDO();
+
 if (!isset($_GET['section']) OR $_GET['section'] == 'index'){
 	include('controllers/C_blog.php');
 }
@@ -18,5 +20,7 @@ elseif($_GET['section'] == 'logout'){
 elseif($_GET['section'] == 'login'){
 	include('controllers/login.php');
 }
-
+else{
+	header('Location: ./404.php');
+}
 ?>

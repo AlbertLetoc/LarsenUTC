@@ -77,3 +77,11 @@ class SPDO extends PDO
     return self::$instance;
   }
 }
+
+
+function secured_OUT_string($string){
+  $string = htmlentities(nl2br($string), ENT_HTML5);
+  $string = strip_tags($string, '<p><a><img><u><a><b><em>');
+
+  return $string;
+}

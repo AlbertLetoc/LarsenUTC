@@ -19,9 +19,9 @@ function get_posts($offset = 0, $limit = 50, $dates){
 	$limit = (int) $limit; // limit: nombre de posts a recuperer au max
 
 	$db = SPDO::getSPDO();
-	$req = $db->prepare('SELECT post_ID, post_title, post_date, post_content, post_author FROM posts WHERE post_date BETWEEN :debut AND :fin ORDER BY post_date DESC, post_ID ASC LIMIT :offset, :limit');
-	$req->bindParam(':debut', (isset($dates['debut'])) ? $dates['debut'] : DATE_D_DEBUT, PDO::PARAM_STR);
-	$req->bindParam(':fin', (isset($dates['fin'])) ? $dates['fin'] : DATE_D_FIN, PDO::PARAM_STR);
+	$req = $db->prepare('SELECT post_ID, post_title, post_date, post_content, post_author, post_status FROM posts WHERE post_status = "published" AND post_date BETWEEN :debut AND :fin ORDER BY post_date DESC, post_ID ASC LIMIT :offset, :limit');
+	$req->bindParam(':debut', (isset($dates[0])) ? $dates[0] : DATE_D_DEBUT, PDO::PARAM_STR);
+	$req->bindParam(':fin', (isset($dates[1])) ? $dates[1] : DATE_D_FIN, PDO::PARAM_STR);
 	$req->bindParam(':offset', $offset, PDO::PARAM_INT);
 	$req->bindParam(':limit', $limit, PDO::PARAM_INT);
 	$req->execute();
@@ -31,7 +31,7 @@ function get_posts($offset = 0, $limit = 50, $dates){
 
 function get_comments($offset = 0, $limit = 50, $dates){
 	$db = SPDO::getSPDO();
-	$req = $db->prepare('SELECT comment_ID, comment_post_ID, comment_author, comment_date, comment_status, comment_content, post_date FROM comments, posts WHERE comment_post_ID=post_ID AND post_date BETWEEN :debut AND :fin ORDER BY post_date DESC, comment_ID ASC LIMIT :offset, :limit');
+	$req = $db->prepare('SELECT comment_ID, comment_post_ID, comment_author, comment_date, comment_status, comment_content, post_date FROM comments, posts WHERE comment_post_ID=post_ID AND comment_status = "published" AND post_date BETWEEN :debut AND :fin ORDER BY post_date DESC, comment_ID ASC LIMIT :offset, :limit');
 	$req->bindParam(':debut', (isset($dates[0])) ? $dates[0] : DATE_D_DEBUT, PDO::PARAM_STR);
 	$req->bindParam(':fin', (isset($dates[1])) ? $dates[1] : DATE_D_FIN, PDO::PARAM_STR);
 	$req->bindParam(':offset', $offset, PDO::PARAM_INT);
@@ -48,7 +48,7 @@ function get_pagination($per_page = 2, $dates){
 		'delta' => 2);
 	$deb = isset($dates['debut']) ? $dates['debut'] : DATE_D_DEBUT;
 	$fin = isset($dates['fin']) ? $dates['fin'] : DATE_D_FIN;
-	$query = 'SELECT post_ID, post_title, post_date, post_content, post_author FROM posts WHERE post_date BETWEEN "'.$deb.'" AND "'.$fin.'" ORDER BY post_date DESC, post_ID ASC';
+	$query = 'SELECT post_ID, post_title, post_date, post_content, post_author, post_status FROM posts WHERE post_status = "published" AND post_date BETWEEN "'.$deb.'" AND "'.$fin.'" ORDER BY post_date DESC, post_ID ASC';
 	$paged_data = Pager_Wrapper_SPDO($query, $pager_options);
 	return $paged_data;
 }

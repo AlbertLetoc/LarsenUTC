@@ -37,16 +37,17 @@ if (is_array($posts['data']) || is_object($posts['data'])){ // evite les bugs en
                     echo $comments[$i]['comment_content']."</p>"; 
                     $i++;
                     }
-                } while(isset($comments[$i]['comment_post_ID']) and $comments[$i]['comment_post_ID']==$post['post_ID']);
+                } while(isset($comments[$i]['comment_post_ID']) and $comments[$i]['comment_post_ID'] == $post['post_ID']);
             }
             ?>
             <form class="post_comments" method="post" action="controllers/C_comments.php">
                 <?php if (isset($_SESSION['user'])){
                     echo "<p>Nom : ".$_SESSION['user']."</p>";
                 }
-                else echo "<p>Nom : <input type=\"text\" name=\"author\"/></p>"; ?>
-                <textarea name="content" rows="4" cols="100"></textarea><br/>
-                <input type="submit" value="envoyer !"/>
+                else echo "<p>Nom : <input type=\"text\" name=\"author\" placeholder=\"Jean Dupond\" required /></p>"; ?>
+                <textarea name="content" rows="4" cols="100" placeholder="Votre commentaire ici..." required ></textarea><br/>
+                <input type="hidden" name="post_ID" value="<?php echo $post['post_ID'] ?>" />
+                <input type="submit" name="submit" value="envoyer !" required/>
             </form>
             <p>____________________________________________________________________________________________________________________________________________________</p><?php
     }
