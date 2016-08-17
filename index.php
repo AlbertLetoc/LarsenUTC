@@ -15,12 +15,15 @@ if (!isset($_GET['section']) OR $_GET['section'] == 'index'){
 	include('controllers/C_blog.php');
 }
 elseif($_GET['section'] == 'logout'){
-	include('controllers/logout.php');
+	include('controllers/C_logout.php');
 }
 elseif($_GET['section'] == 'login'){
-	include('controllers/login.php');
+	include('controllers/C_login.php');
+}
+elseif($_GET['section'] == 'asso'){
+	include('controllers/C_asso.php');
 }
 else{
-	header('Location: ./404.php');
+	include('views/404.php');
 }
 ?>

@@ -41,7 +41,13 @@
                 <li><a href="index.php?annee=1990">1990</a></li>
               </ul>
             </li>
-            <li><a href="index.php?section=salle">Réservation salle</a></li>
+            <li><a href="index.php?section=salle">Gestion des salles</a>
+              <ul>
+                <li><a href="index.php?section=salle&act=bas">Salle de repet du bas</a></li>
+                <li><a href="index.php?section=salle&act=studio">Studio Décibels</a></li>
+                <li><a href="index.php?section=salle&act=reservation">Réservation</a></li>
+              </ul>
+            </li>
             <li><a href="index.php?section=asso">L'association</a></li>
             <li><a href="index.php?section=plateforme">Plateforme collaborative</a></li>
             <li><a href="index.php?section=contact">Contact</a></li>
@@ -59,12 +65,12 @@
               </ul>
             </li>
             <?php
+              if ((isset($_SESSION['user'])) and ($_SESSION['role']=="Président" or $_SESSION['role']=="Vice-président" or $_SESSION['role']=="Resp Communication" or $_SESSION['role']=="Resp Info")){
+                  echo "<li><a href=\"adm/index.php\">Administration</a></li>";
+                }
               if (isset($_SESSION['user'])){
                 echo "<li><a href=\"index.php?section=logout\"> "; echo $_SESSION['user']; echo " logout </a></li>";
               }
               else echo "<li><a href=\"index.php?section=login\">Connexion CAS</a>";
-              if ((isset($_SESSION['user'])) and ($_SESSION['role']=="Président" or $_SESSION['role']=="Vice-président" or $_SESSION['role']=="Resp Communication" or $_SESSION['role']=="Resp Info")){
-                echo "<li><a href=\"adm/index.php\">Administration</a></li>";
-              }
             ?>
           </ul><br/><br/><br/>

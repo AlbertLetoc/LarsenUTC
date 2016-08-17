@@ -65,7 +65,6 @@ function get_pagination($per_page = 2, $dates){
    * @return $array : tableau contenant la date de début et la date de fin au format str.
    */
 function semestre_to_datetime($semestre){
-	$param= array($semestre);
 	if (preg_match("/^[aApP]{1}[0-9]{2}$/", $semestre)){ // verification de l'argument
 
 		$annee=substr($semestre, 1, 2); // annee au format 08
