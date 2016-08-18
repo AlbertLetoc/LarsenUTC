@@ -3,6 +3,7 @@
 	else
 	{
 		$user = CAS::authenticate();
+		var_dump($user);
 		if ($user != -1)
 		{
 			$_SESSION['user'] = $user;
