@@ -1,10 +1,5 @@
 <?php
-
 $trombi = get_actual_trombi();
-
-//appel de la vue
-include_once('./views/asso.php');
-
 
 function get_actual_trombi(){
 	$url="http://assos.utc.fr/asso/membres.json/larsen";
@@ -23,3 +18,6 @@ function get_actual_trombi(){
 	}
 	return $trombi;
 }
+
+//appel de la vue
+include_once('./views/asso.php');

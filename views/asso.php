@@ -15,7 +15,7 @@
 
         <img src="./img/slide1.png" height="400" width="1080">
 
-		<p> La commission du PAE-UTC Larsen a été fondée le 26 novembre 1986. <br/>
+		<p> La commission du PAE-UTC Larsen a été fondée le 26 novembre 1986 par un groupe d'étudiants ingénieurs passionés de musique. <br/>
 			L’objectif de l’association est de rassembler et représenter au sein de l’UTC l’ensemble des musiciens ayant un attrait pour la pratique instrumentale/vocale de groupe, et participer à des évènements dans le but de promouvoir les musiciens UTCéens dans le cadre de l’UTC, de Compiègne ou a l’extérieur.
 		</p>
 
@@ -32,7 +32,7 @@
 		</p>
 
 
-		<h2> L'équipe </h2>
+		<h2> L'équipe Larsen</h2>
 		
 		<?php
 		if (is_array($trombi) || is_object($trombi)){ // evite les bugs si aucun membre du bureau inscrit sur le portail des assos
@@ -45,6 +45,10 @@
 		       <?php }
 		} ?>
 
+		<div>
+			<p> Mais aussi et surtout les 70 membres enthousiastes et exceptionnels qui forment les 22 groupes de Larsen ! <br/> Petite photo de famille</p>
+		</div>
 
+        <?php include("/footer.php");?>
     </body>
 </html>

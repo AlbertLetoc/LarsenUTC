@@ -43,7 +43,7 @@ if (is_array($posts['data']) || is_object($posts['data'])){ // evite les bugs en
             ?>
             <form class="post_comments" method="post" action="controllers/C_comments.php">
                 <?php if (isset($_SESSION['user'])){
-                    echo "<p>Nom : ".$_SESSION['user']."</p>";
+                    echo "<p>Nom : ".$_SESSION['user']['cas:attributes']['cas:displayName']."</p>";
                 }
                 else echo "<p>Nom : <input type=\"text\" name=\"author\" placeholder=\"Jean Dupond\" required /></p>"; ?>
                 <textarea name="content" rows="4" cols="100" placeholder="Votre commentaire ici..." required ></textarea><br/>
@@ -57,5 +57,7 @@ if (is_array($posts['data']) || is_object($posts['data'])){ // evite les bugs en
     echo $posts['links'];
 }
 ?>
+
+<?php include("/footer.php");?>
 </body>
 </html>

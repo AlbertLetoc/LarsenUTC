@@ -3,13 +3,11 @@
 	else
 	{
 		$user = CAS::authenticate();
-		var_dump($user);
 		if ($user != -1)
 		{
 			$_SESSION['user'] = $user;
 			$_SESSION['ticket'] = $_GET['ticket'];
-			$_SESSION['role'] = get_role($_SESSION['user'],"larsen");
-			
+			$_SESSION['role'] = get_role($_SESSION['user']['cas:user'],"larsen");
 			header('Location: ./');
 		}
 		else CAS::login();

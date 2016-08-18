@@ -1,9 +1,7 @@
 <?php
 include_once ('./models/M_get_posts.php'); // inclusion du modele
 
-
 $per_page = 2; // definition du nombre d'articles a afficher par page
-
 
 // selection des articles
 if ((!isset($_GET['sem'])) and (!isset($_GET['annee']))){ // index

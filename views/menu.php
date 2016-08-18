@@ -69,7 +69,7 @@
                   echo "<li><a href=\"adm/index.php\">Administration</a></li>";
                 }
               if (isset($_SESSION['user'])){
-                echo "<li><a href=\"index.php?section=logout\"> "; echo $_SESSION['user']; echo " logout </a></li>";
+                echo "<li><a href=\"index.php?section=logout\"> "; echo $_SESSION['user']['cas:attributes']['cas:displayName']; echo " Logout </a></li>";
               }
               else echo "<li><a href=\"index.php?section=login\">Connexion CAS</a>";
             ?>
