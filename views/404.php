@@ -8,12 +8,12 @@
         
     <body>
         <nav id="primary_nav_wrap">
-            <?php include("/menu.php");?>
+            <?php include("./views/menu.php");?>
         </nav>
 
          <h3>Erreur 404 :</h3>
          <p> Cette page n'existe pas ou vous vous êtes trompé de page.... </p>
 
-        <?php include("/footer.php");?>
+        <?php include("./views/footer.php");?>
     </body>
 </html>

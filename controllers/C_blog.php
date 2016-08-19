@@ -63,7 +63,7 @@ if (is_array($comments) || is_object($comments)){ // evite les bugs en cas de r√
 }
 
 if (isset($_POST['submit'])){
-	include_once('C_comments.php');
+	include_once('./controllers/C_comments.php');
 }
 
 //appel de la vue

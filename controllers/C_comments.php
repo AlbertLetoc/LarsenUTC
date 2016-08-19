@@ -1,7 +1,7 @@
 <?php
-session_save_path('../sess');
+session_save_path('./sess');
 session_start();
-include_once ('../models/M_send_comment.php'); // inclusion du modele
+include_once ('./models/M_send_comment.php'); // inclusion du modele
 
 
 // ecriture d'un commentaire

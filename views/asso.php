@@ -8,7 +8,7 @@
         
     <body>
         <nav id="primary_nav_wrap">
-            <?php include("/menu.php");?>
+            <?php include("./views/menu.php");?>
         </nav>
 
         <h1> Larsen fête ses 30 ans </h1>
@@ -49,6 +49,6 @@
 			<p> Mais aussi et surtout les 70 membres enthousiastes et exceptionnels qui forment les 22 groupes de Larsen ! <br/> Petite photo de famille</p>
 		</div>
 
-        <?php include("/footer.php");?>
+        <?php include("./views/footer.php");?>
     </body>
 </html>

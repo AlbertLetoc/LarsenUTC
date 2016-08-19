@@ -1,6 +1,6 @@
 <?php
 // source : https://github.com/Robhub/trocutc
-require_once 'xmlToArrayParser.class.php';
+require_once './incl/xmlToArrayParser.class.php';
 class CAS
 {
 	const URL = 'https://cas.utc.fr/cas/';

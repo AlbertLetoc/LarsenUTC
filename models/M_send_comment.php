@@ -1,5 +1,5 @@
 <?php 
-require_once '../incl/SPDO.class.php';
+require_once './incl/SPDO.class.php';
 
 function send_comment($post_ID, $author, $content){
 	$db = SPDO::getSPDO();

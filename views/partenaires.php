@@ -8,7 +8,7 @@
         
     <body>
         <nav id="primary_nav_wrap">
-            <?php include("/menu.php");?>
+            <?php include("./views/menu.php");?>
         </nav>
 
         <h1> Larsen fête ses 30 ans </h1>
@@ -40,6 +40,6 @@
 		</p>
 
 		
-        <?php include("/footer.php");?>
+        <?php include("./views/footer.php");?>
     </body>
 </html>

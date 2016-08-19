@@ -41,11 +41,10 @@
                 <li><a href="index.php?annee=1990">1990</a></li>
               </ul>
             </li>
-            <li><a href="index.php?section=salle">Gestion des salles</a>
+            <li><a href="index.php?section=salles">Gestion des salles</a>
               <ul>
-                <li><a href="index.php?section=salle&act=bas">Salle de repet du bas</a></li>
-                <li><a href="index.php?section=salle&act=studio">Studio Décibels</a></li>
-                <li><a href="index.php?section=salle&act=reservation">Réservation</a></li>
+                <li><a href="index.php?section=salles&act=bas">Salle de repet du bas</a></li>
+                <li><a href="index.php?section=salles&act=studio">Studio Décibels</a></li>
               </ul>
             </li>
             <li><a href="index.php?section=asso">L'association</a></li>

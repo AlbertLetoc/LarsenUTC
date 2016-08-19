@@ -8,7 +8,7 @@
         
     <body>
         <nav id="primary_nav_wrap">
-            <?php include("/menu.php");?>
+            <?php include("./views/menu.php");?>
         </nav>
 
 
@@ -58,6 +58,6 @@ if (is_array($posts['data']) || is_object($posts['data'])){ // evite les bugs en
 }
 ?>
 
-<?php include("/footer.php");?>
+<?php include("./views/footer.php");?>
 </body>
 </html>
