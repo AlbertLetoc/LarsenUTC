@@ -17,24 +17,38 @@ $db = SPDO::getSPDO();
         <title>Larsen UTC - Accueil</title>
 	    <link href="style/css/app.css" rel="stylesheet" />
 		<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBMFzyntK3S-mDScGkBQ-xvZ3UYDHPuh4M"></script>
+		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
     </head>
     <body>
-        <nav id="primary_nav_wrap">
+        <nav class="nav">
+			<ul>
+				<img src="style/img/logo.png" height=100% class="logo"/>
+				<li><a href="#">Accueil</a></li>
+				<li><a href="#">Ce Semestre</a></li>
+				<li><a href="#">Médias</a></li>
+				<li><a href="#">L'Association</a></li>
+			</ul>
         </nav>
+		<section class="row">
+			<article class="col-lg-9">
 		<?php 
-		if (!isset($_GET['section'])){
-			include('./controllers/C_blog.php');
-		}
-		else{
-			if(file_exists('./controllers/C_'.$_GET['section'].'.php'))
-			{
-				include_once('./controllers/C_'.$_GET['section'].'.php');
+			if (!isset($_GET['section'])){
+				include('./controllers/C_blog.php');
 			}
-			else {
-				include('./views/404.php');
-			}	
-		}
+			else{
+				if(file_exists('./controllers/C_'.$_GET['section'].'.php'))
+				{
+					include_once('./controllers/C_'.$_GET['section'].'.php');
+				}
+				else {
+					include('./views/404.php');
+				}	
+			}
 		?>
+			</article>
+			<aside class="col-lg-3">
+			</aside>
+		</section>
 		<footer>
 			<p>
 			_________________________________________________________________________________________________________________________________________
