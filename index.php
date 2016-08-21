@@ -10,28 +10,17 @@ define ('DATE_D_FIN' , "2069-12-31 23:59:59:999");
 
 $db = SPDO::getSPDO();
 
-if (!isset($_GET['section']) OR $_GET['section'] == 'index'){
+if (!isset($_GET['section'])){
 	include('./controllers/C_blog.php');
 }
-elseif($_GET['section'] == 'logout'){
-	include('./controllers/C_logout.php');
-}
-elseif($_GET['section'] == 'login'){
-	include('./controllers/C_login.php');
-}
-elseif($_GET['section'] == 'asso'){
-	include('./controllers/C_asso.php');
-}
-elseif($_GET['section'] == 'contact'){
-	include('./controllers/C_contacts.php');
-}
-elseif($_GET['section'] == 'partenaires'){
-	include('./controllers/C_partenaires.php');
-}
-elseif($_GET['section'] == 'salles'){
-	include('./controllers/C_salles.php');
-}
 else{
-	include('./views/404.php');
+	if(file_exists('./controllers/C_'.$_GET['section'].'.php'))
+	{
+		include_once('./controllers/C_'.$_GET['section'].'.php');
+	}
+	else {
+		include('./views/404.php');
+	}	
+	
 }
 ?>
