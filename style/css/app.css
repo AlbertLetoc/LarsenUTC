@@ -3,29 +3,35 @@ body {
     padding: 0;
     font-family: 'Source Sans Pro';
     padding-top: 80px;
-    background: url(../img/background.jpg);
-    background-size: cover;
-    background-attachment: fixed;
+    
 }
 
 body:before {
     content: "";
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    height: 100%; width: 20%;
-    
-    
-    z-index: -1; /* Keep the background behind the content */
-    
-    /* don't forget to use the prefixes you need */
-    -webkit-transform: scale(5);
-    -webkit-transform-origin: top left;
+    height: 100%; width: 100%;
+    -webkit-filter: blur(10px);
+    filter: blur(10px);
+    z-index: -1;
+    background: url(../img/background.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    transform: scale(1.1);
+    transform-origin: center center;
+}
+
+.container {
+    margin: auto;
 }
 
 .row {
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 20px;
+    margin-left: -1rem;
+    margin-right: -1rem;
 }
 
 .col-xs-1,
@@ -143,7 +149,11 @@ body:before {
     margin-left: 100%;
 }
 
-@media(only screen and (max-width: 768px)) {
+@media(min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+
     .col-sm-1,
     .col-sm-2,
     .col-sm-3,
@@ -260,7 +270,11 @@ body:before {
     }
 }
 
-@media(only screen and (max-width: 1024px)) {
+@media(min-width: 1024px) {
+    .container {
+        width: 970px;
+    }
+
     .col-md-1,
     .col-md-2,
     .col-md-3,
@@ -377,7 +391,11 @@ body:before {
     }
 }
 
-@media(only screen and (max-width: 1200px)) {
+@media(min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+
     .col-lg-1,
     .col-lg-2,
     .col-lg-3,
@@ -530,7 +548,6 @@ body:before {
     width: 1px;
     height: 30px;
     background: #979797;
-    /*border: solid 1px #979797;*/
     margin-left: 14px;
     margin-top: 7px;
     position: absolute;
@@ -540,3 +557,139 @@ body:before {
     text-decoration: none;
     color: white;
 }
+
+.jumbotron {
+    background-color: #3d3d3d;
+    height: 60px;
+    color: #b3b3b3;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    margin-bottom: 20px;
+}
+
+.jumbotron h1 {
+    font-size: 1.25em;
+    font-weight: bold;
+    font-style: italic;
+    margin: 0;
+    vertical-align: middle;
+    line-height: 60px;
+}
+
+.jumbotron .col-md-3 {
+    background-color: #e24a4a;
+    padding: 0;
+    color: #ffffff;
+    text-align: center;
+    font-size: 1em;
+    font-weight: 500;
+}
+
+.jumbotron a {
+    vertical-align: middle;
+    line-height: 60px;
+}
+
+.carousel {
+    height: 250px;
+    background: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    margin-bottom: 20px;
+}
+
+.news {
+    background-image: linear-gradient(to right, rgba(165, 165, 165, 0), rgba(165, 165, 165, 0), rgba(108, 108, 108, 0.57));
+    margin-bottom: 16px;
+    color: #ffffff;
+}
+
+.news-title {
+    height: 50px;
+}
+
+.news-title h2 {
+    margin: 0;
+    position: relative;
+    padding-left: 1rem;
+    vertical-align: middle;
+    line-height: 52px;
+    color: #4a4a4a;
+    font-weight: bold;
+    font-size: 1.25em;
+    z-index: 3;
+}
+
+.news-title > .col-md-10 {
+    position: relative
+}
+
+.news-title > .col-md-10::before {
+    content: '';
+    position: absolute;
+    height: 52px;
+    width: calc(100% + 2rem);
+    display: block;
+    background-image: url('../img/ticket.png');
+    background-position: right top;
+    background-origin: border-box;
+    background-repeat: no-repeat;  
+    background-size: 100% 100%;
+    overflow-x: visible;
+    margin-top: -2px;
+    margin-left: -2rem;
+    right:0;
+}
+
+.news-date {
+    display: flex;
+    padding: 0;
+    background: rgba(226, 74, 74, 0.59);
+}
+
+.news-date span {
+    display: inline-block;
+    padding: 0;
+}
+
+.news-date-day {
+    font-size: 2.25em;
+    font-weight: 200;
+    line-height: 42px;
+    vertical-align: middle;
+    height: 42px;
+    margin-left: 1rem;
+}
+
+.news-date-month {
+    font-size: 0.938em;
+    font-weight: bold;
+    text-align: right;
+    position: absolute;
+    right: 5px;
+    top: 2px;
+}
+
+.news-date-year {
+    text-align: right;
+    font-size: 1.125em;
+    font-weight: 200;
+    position: absolute;
+    right: 5px;
+    bottom: 2px;
+}
+
+.news-date > .row {
+    margin-bottom: 0;
+    width: 110px;
+    position: relative;
+    height: 42px;
+    margin: 4px 0;
+}
+
+.news-content {
+    font-size: 0.875em;
+}
+
+.news-author-img {
+    width: 44px;
+}
+

@@ -48,7 +48,7 @@ if (is_array($posts) || is_object($posts)){ // evite les bugs en cas de résulta
 		$posts['data'][$key]['post_title']=secured_OUT_string($post['post_title']);
 		$posts['data'][$key]['post_content']=$post['post_content'];
 		$posts['data'][$key]['post_author']=secured_OUT_string($post['post_author']);
-		$posts['data'][$key]['post_date']=secured_OUT_string($post['post_date']);
+		$posts['data'][$key]['post_date']= $post['post_date'];
 	}
 }
 if (is_array($comments) || is_object($comments)){ // evite les bugs en cas de résultat vide de la requete SQL, comme si par d'articles rédigés dans la periode demandée par ex 
