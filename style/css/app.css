@@ -18,7 +18,7 @@ body:before {
     background: url(../img/background.jpg);
     background-size: cover;
     background-attachment: fixed;
-    transform: scale(1.1);
+    transform: scale(1.3);
     transform-origin: center center;
 }
 
@@ -29,7 +29,6 @@ body:before {
 .row {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 20px;
     margin-left: -1rem;
     margin-right: -1rem;
 }
@@ -597,7 +596,6 @@ body:before {
 }
 
 .news {
-    background-image: linear-gradient(to right, rgba(165, 165, 165, 0), rgba(165, 165, 165, 0), rgba(108, 108, 108, 0.57));
     margin-bottom: 16px;
     color: #ffffff;
 }
@@ -609,7 +607,6 @@ body:before {
 .news-title h2 {
     margin: 0;
     position: relative;
-    padding-left: 1rem;
     vertical-align: middle;
     line-height: 52px;
     color: #4a4a4a;
@@ -640,56 +637,79 @@ body:before {
 }
 
 .news-date {
-    display: flex;
-    padding: 0;
     background: rgba(226, 74, 74, 0.59);
 }
 
 .news-date span {
     display: inline-block;
-    padding: 0;
 }
 
 .news-date-day {
     font-size: 2.25em;
     font-weight: 200;
-    line-height: 42px;
+    line-height: 50px;
     vertical-align: middle;
-    height: 42px;
-    margin-left: 1rem;
+    height: 50px;
+    margin-left: -3.5px;
 }
 
 .news-date-month {
     font-size: 0.938em;
     font-weight: bold;
-    text-align: right;
-    position: absolute;
-    right: 5px;
-    top: 2px;
 }
 
 .news-date-year {
-    text-align: right;
     font-size: 1.125em;
     font-weight: 200;
-    position: absolute;
-    right: 5px;
-    bottom: 2px;
 }
 
 .news-date > .row {
-    margin-bottom: 0;
-    width: 110px;
     position: relative;
-    height: 42px;
-    margin: 4px 0;
+    height: 50px;
+}
+
+.news-date .col-md-6:last-of-type {
+    padding-left: 0.5rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: center;
 }
 
 .news-content {
     font-size: 0.875em;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-image: linear-gradient(to right, rgba(165, 165, 165, 0), rgba(165, 165, 165, 0), rgba(165, 165, 165, 0), rgba(108, 108, 108, 0.57));
 }
 
-.news-author-img {
+.news-author {
+    position: relative;
+}
+
+.news-author-img > img {
     width: 44px;
+    border: 2px solid white;
+    transform: rotate(-9deg);
+    transform-origin:  center center; 
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    height: 55px;
+}
+
+.news-author-name {
+    padding-left: 0.5rem;
+    position: relative;
+}
+
+.news-author-name > span:nth-child(2) {
+    font-weight: 800;
+}
+
+.news-author-name > span:last-child {
+    position: absolute;
+    bottom: 0;
+    left: 0.5rem;
+    font-style: italic;
+    font-size: 0.85em;
 }
 
