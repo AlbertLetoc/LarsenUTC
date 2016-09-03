@@ -21,15 +21,28 @@ $db = SPDO::getSPDO();
 	    <link href="style/css/app.css" rel="stylesheet" />
 		<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBMFzyntK3S-mDScGkBQ-xvZ3UYDHPuh4M"></script>
 		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     </head>
     <body>
         <nav class="nav">
 			<ul>
-				<img src="style/img/logo.png" height=100% class="logo"/>
-				<li><a href="#">Accueil</a></li>
-				<li><a href="#">Ce Semestre</a></li>
-				<li><a href="#">Médias</a></li>
-				<li><a href="#">L'Association</a></li>
+				<img src="style/img/logo.png" height="44px" class="logo"/>
+				<li><a href="/larsenUTC/">Accueil</a></li>
+				<li class="dropdown">
+					<a href="#">L'Association</a>
+					<ul class="dropdown-menu">
+						<li><a href="#">Fonctionnement</a></li>
+						<li><a href="#">Historique</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="#">Répéter</a>
+					<ul class="dropdown-menu">
+						<li><a href="/larsenUTC/?section=salles&act=bas">Salle du Pic</a></li>
+						<li><a href="/larsenUTC/?section=salles&act=studio">Studio Décibels</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Contacts</a></li>
 			</ul>
         </nav>
 		<div class="container">
@@ -51,8 +64,21 @@ $db = SPDO::getSPDO();
 			?>
 				</article>
 				<aside class="col-lg-3">
-					<div class="col-md-12" style="background-color: black;">
-						test
+					<div class="col-md-12">
+						<?php 
+							if (!isset($_GET['section'])){
+								include('./controllers/side_bar/C_blog.php');
+							}
+							else{
+								if(file_exists('./controllers/side_bar/C_'.$_GET['section'].'.php'))
+								{
+									include_once('./controllers/side_bar/C_'.$_GET['section'].'.php');
+								}
+								else {
+									include('./views/404.php');
+								}	
+							}
+						?>
 					</div>
 				</aside>
 			</section>
@@ -65,5 +91,6 @@ $db = SPDO::getSPDO();
 				</ul>
 			</footer>
 		</div>
+		<script src="style/js/menu.js" type="text/javascript"></script>
 	</body>
 </html>

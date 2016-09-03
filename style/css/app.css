@@ -526,35 +526,59 @@ body:before {
     justify-content: flex-start;
     align-items: center;
     margin: 0;
-    height: 44px;
-    padding: 8px;
+    height: 60px;
     background-color: rgba(97, 97, 97, 0.52);
     padding-left: 45px; 
 }
 
-.nav > ul > li {
-    display: block;
-    height: 44px;
+.nav li {
+    height: 60px;
     text-align: center;
-    line-height: 44px;
+    line-height: 60px;
     padding: 0 14px;
     font-weight: 700;
+    list-style: none;
 }
 
-.nav > ul > li:not(img):not(:last-child)::after {
+.nav li:hover {
+    cursor: pointer;
+    background: white;
+    color: rgb(97, 97, 97);
+}
+
+.nav li:hover > a {
+    color: rgb(97, 97, 97);
+}  
+
+.nav > ul > li:not(img):not(:nth-child(2))::before {
     content: '';
     display: inline-block;
     width: 1px;
     height: 30px;
     background: #979797;
-    margin-left: 14px;
-    margin-top: 7px;
+    margin-left: -15px;
+    margin-top: 15px;
     position: absolute;
 }
 
-.nav > ul > li > a {
+.nav a {
     text-decoration: none;
     color: white;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: rgb(97, 97, 97);
+    padding: 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    width: 150px;
 }
 
 .jumbotron {
