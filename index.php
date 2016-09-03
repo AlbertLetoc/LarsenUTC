@@ -67,12 +67,12 @@ $db = SPDO::getSPDO();
 					<div class="col-md-12">
 						<?php 
 							if (!isset($_GET['section'])){
-								include('./controllers/side_bar/C_blog.php');
+								include('./controllers/side_bar/C_s_blog.php');
 							}
 							else{
-								if(file_exists('./controllers/side_bar/C_'.$_GET['section'].'.php'))
+								if(file_exists('./controllers/side_bar/C_s_'.$_GET['section'].'.php'))
 								{
-									include_once('./controllers/side_bar/C_'.$_GET['section'].'.php');
+									include_once('./controllers/side_bar/C_s_'.$_GET['section'].'.php');
 								}
 								else {
 									include('./views/404.php');
