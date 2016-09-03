@@ -26,3 +26,36 @@
         </div>
     </div>
 </div>
+<div class="list-module row">
+    <div class="col-md-12">
+        <div class="row list-module-title">
+            <div class="col-md-12">
+                <h2>Enregistrements</h2>
+            </div>
+        </div>
+        <div class="row">
+            <?php 
+            foreach($records as $record) { ?>
+            <div class="col-md-12 list-row">
+                <div class="row">
+                    <div class="col-md-3 record-type">
+                        <?php
+                            if($record['type'] == "audio") {
+                                echo '<span class="glyphicon glyphicon-cd"></span>';
+                            }
+                            else {
+                                echo '<span class="glyphicon glyphicon-film"></span>';
+                            }
+                        ?>
+                    </div>
+                    <div class="col-md-9 record-info">
+                        <span class="record-name"><?php echo $record['name']; ?></span>
+                        <span class="record-artist"><?php echo $record['artist']; ?></span>
+                    </div>
+                </div>
+            </div>
+            <?php }
+            ?>
+        </div>
+    </div>
+</div>

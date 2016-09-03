@@ -19,6 +19,7 @@ $db = SPDO::getSPDO();
         <meta charset="utf-8" />
         <title>Larsen UTC - Accueil</title>
 	    <link href="style/css/app.css" rel="stylesheet" />
+	    <link href="style/css/glyphicons.css" rel="stylesheet" />
 		<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBMFzyntK3S-mDScGkBQ-xvZ3UYDHPuh4M"></script>
 		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

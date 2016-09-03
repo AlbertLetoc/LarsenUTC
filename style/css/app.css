@@ -834,3 +834,36 @@ body:before {
     font-size: 0.938em;
     font-style: italic;
 }
+
+.record-type {
+    font-size: 3.375em;
+    color: black;
+    text-align: center;
+    height: 68px;
+}
+
+.record-type span {
+    line-height: 68px;
+    vertical-align: 68px;
+}
+
+.record-info {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.record-info span {
+    display: block;
+}
+
+.record-name {
+    font-size: 1.125em;
+}
+
+.record-artist {
+    font-size: 0.875em;
+    font-weight: bold;
+    color: #adadad;
+}
