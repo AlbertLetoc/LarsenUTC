@@ -1,15 +1,22 @@
+<div class="col-md-12 carousel">
+    Carousel
+</div>
 <div class="jumbotron col-md-12">
     <div class="row">
         <div class="col-md-9">
-            <h1>Larsen, l'association qui réunit les musiciens de l'UTC depuis 30 ans</h1>
+            <h2>Larsen, l'association qui réunit les musiciens de l'UTC depuis 30 ans</h2>
         </div>
         <div class="col-md-3">
             <a>Découvrir l'Association</a>
         </div>
     </div>
 </div>
-<div class="col-md-12 carousel">
-    Carousel
+<div class="splitter">
+</div>
+<div class="row title">
+    <div class="col-md-12">
+        <h1>Les dernières news :</h1>
+    </div>
 </div>
 <div class="col-md-12">
     <div class="row">
@@ -29,7 +36,7 @@
                                 </div>
                             </div>
                             <div class="col-md-10">
-                                <h2><?php echo $post['post_title']; ?></h2>
+                                <h3><?php echo $post['post_title']; ?></h3>
                             </div>
                         </div>
                         <div class="row news-content">

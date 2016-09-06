@@ -497,6 +497,23 @@ body {
     }
 }
 
+.splitter {
+    background: #ffffff;
+    opacity: 0.5;
+    height: 2px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.title {
+    margin-bottom: 15px;
+}
+.title h1 {
+    opacity: 0.8;
+    color: #ffffff;
+    font-size: 2.25em;
+    margin: 0;
+}
+
 .nav {
     position: fixed;
     height: 60px;
@@ -572,10 +589,10 @@ body {
     height: 60px;
     color: #b3b3b3;
     box-shadow: 0 2px 4px rgba(0,0,0,0.5);
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
-.jumbotron h1 {
+.jumbotron h2 {
     font-size: 1.25em;
     font-weight: bold;
     font-style: italic;
@@ -602,11 +619,11 @@ body {
     height: 250px;
     background: #ffffff;
     box-shadow: 0 2px 4px rgba(0,0,0,0.5);
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .news {
-    margin-bottom: 16px;
+    margin-bottom: 25px;
     color: #ffffff;
 }
 
@@ -614,7 +631,7 @@ body {
     height: 50px;
 }
 
-.news-title h2 {
+.news-title h3 {
     margin: 0;
     position: relative;
     vertical-align: middle;
@@ -730,7 +747,7 @@ body {
     margin-bottom: 20px;
 }
 
-.list-module h2 {
+.list-module h3 {
     margin: 0;
     line-height: 47px;
     vertical-align: middle;

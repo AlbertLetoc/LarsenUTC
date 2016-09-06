@@ -2,7 +2,7 @@
     <div class="col-md-12">
         <div class="row list-module-title">
             <div class="col-md-12">
-                <h2>Évènements</h2>
+                <h3>Évènements</h3>
             </div>
         </div>
         <div class="row">
@@ -30,7 +30,7 @@
     <div class="col-md-12">
         <div class="row list-module-title">
             <div class="col-md-12">
-                <h2>Enregistrements</h2>
+                <h3>Enregistrements</h3>
             </div>
         </div>
         <div class="row">
