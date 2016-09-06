@@ -7,6 +7,7 @@ body {
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
+    font-size: 16px;
 }
 
 .container {
@@ -508,12 +509,17 @@ body {
 }
 .title {
     margin-bottom: 15px;
-}
-.title h1 {
     opacity: 0.8;
     color: #ffffff;
-    font-size: 2.25em;
+    font-size: 1.25em;
+    font-style: italic;
+}
+.title h1 {
+    font-size: 1.8em;
     margin: 0;
+    display: inline;
+    font-style: normal;
+    margin-right: 10px;
 }
 
 .nav {
@@ -617,6 +623,35 @@ body {
     line-height: 60px;
 }
 
+.links {
+    /*font-weight: bold;*/
+    font-size: 1em;
+    opacity: 0.8;
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+
+.links a {
+    font-style: italic;
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.links a:visited {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.links a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.links a:focus {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
 .carousel {
     height: 250px;
     background: #ffffff;
@@ -624,16 +659,16 @@ body {
     margin-bottom: 30px;
 }
 
-.news {
+.card {
     margin-bottom: 25px;
     color: #ffffff;
 }
 
-.news-title {
+.card-title {
     height: 50px;
 }
 
-.news-title h3 {
+.card-title h3 {
     margin: 0;
     position: relative;
     vertical-align: middle;
@@ -644,11 +679,11 @@ body {
     z-index: 3;
 }
 
-.news-title > .col-md-10 {
+.card-title > .col-md-10 {
     position: relative
 }
 
-.news-title > .col-md-10::before {
+.card-title > .col-md-10::before {
     content: '';
     position: absolute;
     height: 52px;
@@ -665,15 +700,15 @@ body {
     right:0;
 }
 
-.news-date {
+.card-date {
     background: rgba(226, 74, 74, 0.59);
 }
 
-.news-date span {
+.card-date span {
     display: inline-block;
 }
 
-.news-date-day {
+.card-date-day {
     font-size: 2.25em;
     font-weight: 200;
     line-height: 50px;
@@ -682,22 +717,22 @@ body {
     margin-left: -3.5px;
 }
 
-.news-date-month {
+.card-date-month {
     font-size: 0.938em;
     font-weight: bold;
 }
 
-.news-date-year {
+.card-date-year {
     font-size: 1.125em;
     font-weight: 200;
 }
 
-.news-date > .row {
+.card-date > .row {
     position: relative;
     height: 50px;
 }
 
-.news-date .col-md-6:last-of-type {
+.card-date .col-md-6:last-of-type {
     padding-left: 0.5rem;
     display: flex;
     align-items: center;
@@ -705,18 +740,18 @@ body {
     align-content: center;
 }
 
-.news-content {
+.card-content {
     font-size: 0.875em;
     padding-top: 1rem;
     padding-bottom: 1rem;
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.20), rgba(255, 255, 255, 0.36))
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.20), rgba(255, 255, 255, 0.36));
 }
 
-.news-author {
+.card-author {
     position: relative;
 }
 
-.news-author-img > img {
+.card-author-img > img {
     width: 44px;
     border: 2px solid white;
     transform: rotate(-9deg);
@@ -725,16 +760,16 @@ body {
     height: 55px;
 }
 
-.news-author-name {
+.card-author-name {
     padding-left: 0.5rem;
     position: relative;
 }
 
-.news-author-name > span:nth-child(2) {
+.card-author-name > span:nth-child(2) {
     font-weight: 800;
 }
 
-.news-author-name > span:last-child {
+.card-author-name > span:last-child {
     position: absolute;
     bottom: 0;
     left: 0.5rem;

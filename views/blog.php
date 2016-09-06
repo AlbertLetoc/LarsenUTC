@@ -28,24 +28,24 @@
             else{
                 foreach ($posts['data'] as $post) {
                 ?>
-                    <div class="col-md-12 news">
-                        <div class="row news-title">
-                            <div class="col-md-2 news-date">
+                    <div class="col-md-12 card">
+                        <div class="row card-title">
+                            <div class="col-md-2 card-date">
                                 <div class="row">
-                                 <?php echo '<div class="col-md-6"><span class="news-date-day">'.date('d', strtotime($post['post_date'])).'</span></div><div class="col-md-6"><span class="news-date-month">'.utf8_encode(strftime('%b', strtotime($post['post_date']))).'</span><span class="news-date-year">'.date('Y', strtotime($post['post_date'])).'</span></div>'; ?>
+                                 <?php echo '<div class="col-md-6"><span class="card-date-day">'.date('d', strtotime($post['post_date'])).'</span></div><div class="col-md-6"><span class="card-date-month">'.utf8_encode(strftime('%b', strtotime($post['post_date']))).'</span><span class="card-date-year">'.date('Y', strtotime($post['post_date'])).'</span></div>'; ?>
                                 </div>
                             </div>
                             <div class="col-md-10">
                                 <h3><?php echo $post['post_title']; ?></h3>
                             </div>
                         </div>
-                        <div class="row news-content">
-                            <div class="col-md-2 news-author">
+                        <div class="row card-content">
+                            <div class="col-md-2 card-author">
                                 <div class="row">
-                                    <div class="col-md-6 news-author-img">
+                                    <div class="col-md-6 card-author-img">
                                         <img src="https://demeter.utc.fr/pls/portal30/portal30.get_photo_utilisateur?username=<?php echo $post['post_author']; ?>" alt="Photo auteur"/>
                                     </div>
-                                    <div class="col-md-6 news-author-name">
+                                    <div class="col-md-6 card-author-name">
                                         <?php
                                         //  echo $post['post_author']; ?>
                                         <span>Clément</span> <span>Losser</span><!-- Temporaire tant que Ginger n'est pas installer -->

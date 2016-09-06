@@ -20,4 +20,4 @@ function get_actual_trombi(){
 }
 
 //appel de la vue
-include_once('./views/asso.php');
+include_once('./views/trombi.php');
