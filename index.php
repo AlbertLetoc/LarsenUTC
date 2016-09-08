@@ -32,8 +32,8 @@ $db = SPDO::getSPDO();
 				<li class="dropdown">
 					<a href="#">L'Association</a>
 					<ul class="dropdown-menu">
-						<li><a href="#">Fonctionnement</a></li>
-						<li><a href="#">Historique</a></li>
+						<li><a href="/larsenUTC/?section=trombi">Fonctionnement</a></li>
+						<li><a href="/larsenUTC/?section=presentation">Historique</a></li>
 					</ul>
 				</li>
 				<li class="dropdown">
