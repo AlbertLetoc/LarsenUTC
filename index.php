@@ -97,6 +97,6 @@ $db = SPDO::getSPDO();
 				</ul>
 			</footer>
 		</div>
-		<script src="style/js/menu.js" type="text/javascript"></script>
+		<script src="/larsenUTC/style/js/menu.js" type="text/javascript"></script>
 	</body>
 </html>
