@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<route id="accueil" path="/test/:id">
+    <controller>test</controller>
+    <action>test</action>
+    <requirements>
+        <id value="40"/>
+    </requirements>
+</route>
+    
