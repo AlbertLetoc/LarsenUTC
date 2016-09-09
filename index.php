@@ -6,6 +6,7 @@ require_once './incl/SPDO.class.php';
 require_once './incl/Pear/Pager-2.4.9/examples/Pager_Wrapper.php';
 require_once './incl/formatHelperFunc.php';
 require_once './incl/Router.php';
+require_once './incl/UserInfo.class.php';
 
 define ('DATE_D_DEBUT' , "1970-01-01 00:00:00:000");
 define ('DATE_D_FIN' , "2069-12-31 23:59:59:999");
@@ -33,8 +34,8 @@ $db = SPDO::getSPDO();
 				<li class="dropdown">
 					<a href="#">L'Association</a>
 					<ul class="dropdown-menu">
-						<li><a href="#">Fonctionnement</a></li>
-						<li><a href="#">Historique</a></li>
+						<li><a href="/larsenUTC/?section=trombi">Fonctionnement</a></li>
+						<li><a href="/larsenUTC/?section=presentation">Historique</a></li>
 					</ul>
 				</li>
 				<li class="dropdown">
@@ -50,19 +51,7 @@ $db = SPDO::getSPDO();
 		<div class="container">
 			<section class="row">
 				<article class="col-lg-9">
-			<?php 
-				// if (!isset($_GET['section'])){
-				// 	include('./controllers/C_blog.php');
-				// }
-				// else{
-				// 	if(file_exists('./controllers/C_'.$_GET['section'].'.php'))
-				// 	{
-				// 		include_once('./controllers/C_'.$_GET['section'].'.php');
-				// 	}
-				// 	else {
-				// 		include('./views/404.php');
-				// 	}	
-				// }
+				<?php
 				$router = Router::getInstance();
 				$router->setFolders('config', 'controllers', '');
 				$router->loadRoutes();

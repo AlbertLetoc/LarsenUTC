@@ -25,3 +25,7 @@ function trim_text($input, $length, $ellipses = true, $strip_html = true) {
   
     return $trimmed_text;
 }
+
+function formatName($name) {
+    return ucfirst(strtolower($name));
+}
