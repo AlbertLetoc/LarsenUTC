@@ -14,6 +14,9 @@ define ('DATE_D_FIN' , "2069-12-31 23:59:59:999");
 setlocale(LC_ALL, 'fr');
 
 $db = SPDO::getSPDO();
+$router = Router::getInstance();
+$router->setFolders('config', 'controllers', 'error');
+$router->loadRoutes();
  ?>
 <!DOCTYPE html>
 <html>
@@ -30,31 +33,28 @@ $db = SPDO::getSPDO();
         <nav class="nav">
 			<ul>
 				<img src="style/img/logo.png" height="44px" class="logo"/>
-				<li><a href="/larsenUTC/">Accueil</a></li>
+				<li><a href="<?php echo $router->getUrl('accueil'); ?>">Accueil</a></li>
 				<li class="dropdown">
 					<a href="#">L'Association</a>
 					<ul class="dropdown-menu">
-						<li><a href="/larsenUTC/?section=trombi">Fonctionnement</a></li>
-						<li><a href="/larsenUTC/?section=presentation">Historique</a></li>
+						<li><a href="<?php echo $router->getUrl('association_trombi'); ?>">Fonctionnement</a></li>
+						<li><a href="<?php echo $router->getUrl('association_presentation'); ?>">Historique</a></li>
 					</ul>
 				</li>
 				<li class="dropdown">
 					<a href="#">Répéter</a>
 					<ul class="dropdown-menu">
-						<li><a href="/larsenUTC/?section=salles&act=bas">Salle du Pic</a></li>
-						<li><a href="/larsenUTC/?section=salles&act=studio">Studio Décibels</a></li>
+						<li><a href="<?php echo $router->getUrl('repet_salle', array('salle' => 'bas')); ?>">Salle du Pic</a></li>
+						<li><a href="<?php echo $router->getUrl('repet_salle', array('salle' => 'studio')); ?>">Studio Décibels</a></li>
 					</ul>
 				</li>
-				<li><a href="#">Contacts</a></li>
+				<li><a href="<?php echo $router->getUrl('association_contact'); ?>">Contacts</a></li>
 			</ul>
         </nav>
 		<div class="container">
 			<section class="row">
 				<article class="col-lg-9">
 				<?php
-				$router = Router::getInstance();
-				$router->setFolders('config', 'controllers', '');
-				$router->loadRoutes();
 				$router->matchRoute();
 			?>
 				</article>

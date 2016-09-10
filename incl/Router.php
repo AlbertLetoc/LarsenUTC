@@ -37,7 +37,7 @@ class Router {
     
     public function loadRoutes() {
         $this->crawler->load($this->configFolder.'/route.xml');
-        foreach($this->crawler->childNodes as $route) {
+        foreach($this->crawler->childNodes->item(0)->childNodes as $route) {
             if($route->nodeName == "route") {  
                 $newRoute = array(
                     "url"=> $route->getAttribute("path"),
@@ -64,7 +64,7 @@ class Router {
     }
 
     public function matchRoute() {
-        $requestedURL = explode('/', trim($_GET['url'], '/'));
+        $requestedURL = explode('/', trim((isset($_GET['url'])) ? $_GET['url'] : '', '/'));
         $callRoute = null;
         foreach($this->routes as $route) {
             $url = explode('/', trim($route["url"], '/'));
@@ -72,7 +72,7 @@ class Router {
             if(count($requestedURL) == count($url)) {
                 $status = true;
                 for($i = 0; $i < count($url); $i++) {
-                    if($url[$i][0] == ':') {
+                    if($url[$i] != '' && $url[$i][0] == ':') {
                         $params[substr($url[$i], 1)] = $requestedURL[$i];
                     }
                     elseif($url[$i] != $requestedURL[$i]) {
@@ -96,7 +96,6 @@ class Router {
             $action = $callRoute["action"].'Action';
         }
         else {
-            header("Status: 404 Not Found");
             include_once($this->controllerFolder.'/'.$this->errorController.'Controller.php');
             $class = $this->errorController.'Controller';
             $action = "error404Action";
@@ -104,7 +103,6 @@ class Router {
 
         $controller = new $class();
         if(!is_callable(array($controller, $action))) {
-            header("Status: 404 Not Found");
             include_once($this->controllerFolder.$this->errorController.'Controller.php');
             $class = $this->errorController.'Controller';
             $action = "error404Action";
@@ -138,8 +136,7 @@ class Router {
                     $url = str_replace(":".$key, $value, $url);
                 }
             }
-
-            return $url;
+            return '/larsenUTC'.$url;
         }
     }
 }

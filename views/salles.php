@@ -1,9 +1,9 @@
 <?php 
-if(isset($_GET['act'])) {
-	if($_GET['act'] == "bas"){
+if(isset($salle)) {
+	if($salle == "bas"){
 		include_once('./views/salle_bas.php');
 	}
-	elseif ($_GET['act'] == "studio"){
+	elseif ($salle == "studio"){
 		include_once('./views/studio.php');
 	}
 }

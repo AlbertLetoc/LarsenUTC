@@ -1,9 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<route id="accueil" path="/test/:id">
-    <controller>test</controller>
-    <action>test</action>
-    <requirements>
-        <id value="40"/>
-    </requirements>
-</route>
+<routes>
+    <route id="accueil" path="/">
+        <controller>blog</controller>
+        <action>list</action>
+    </route>
+    <route id="association_trombi" path="/association/fonctionnement">
+        <controller>association</controller>
+        <action>trombi</action>
+    </route>
+    <route id="association_presentation" path="/association/presentation">
+        <controller>association</controller>
+        <action>presentation</action>
+    </route>
+    <route id="association_contact" path="/contact">
+        <controller>association</controller>
+        <action>contact</action>
+    </route>
+    <route id="repet_salle" path="/repeter/salles/:salle">
+        <controller>repet</controller>
+        <action>salles</action>
+    </route>
+    <route id="login" path="/login">
+        <controller>user</controller>
+        <action>login</action>
+    </route>
+    <route id="logout" path="/logout">
+        <controller>user</controller>
+        <action>logout</action>
+    </route>
+</routes>
     
