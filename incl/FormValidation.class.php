@@ -1,4 +1,5 @@
 <?php 
+//class de validation du formulaire
 class FormValidation {
     private $errors = array();
 
@@ -8,6 +9,7 @@ class FormValidation {
         return $token;
     }
 
+    //Vérifie si le formulaire répond bien aux exigence et si le token CRSF est correct
     public function validateForm($formValues, $formName, $rules) {
         $token = $_SESSION[$formName.'_token'];
         if($token == $formValues[$formName.'_token']) {

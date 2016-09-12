@@ -34,7 +34,7 @@ class Router {
         $this->configFolder = $configFolder;
         $this->errorController = $errorController;
     }
-    
+    //Chargement des routes du fichier xml
     public function loadRoutes() {
         $this->crawler->load($this->configFolder.'/route.xml');
         foreach($this->crawler->childNodes->item(0)->childNodes as $route) {
@@ -62,7 +62,7 @@ class Router {
             }
         }
     }
-
+    //Permet de rediriger vers le bon controller et de sortir les paramètres de l'URL. Envoi une erreur 404 si route inconnue
     public function matchRoute() {
         $requestedURL = explode('/', trim((isset($_GET['url'])) ? $_GET['url'] : '', '/'));
         $callRoute = null;

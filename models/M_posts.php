@@ -90,7 +90,13 @@ function semestre_to_datetime($semestre){
 		return array ('debut'=>$debut, 'fin'=>$fin);
 	}
 }
-
+/**
+	* send_post
+	* Ajoute une entrée à la table posts basé sur le formulaire d'ajout
+	* @param postValue : tableau comportant les champs du formulaire
+	* @return : true si insertion effectuée, false sinon
+	*
+*/
 function send_post($postValue) {
 	$db = SPDO::getSPDO();
 	$req = $db->prepare("INSERT INTO posts(post_title, post_date, post_content, post_author, post_status) VALUES (:title, NOW(), :content, :author, 'published')");

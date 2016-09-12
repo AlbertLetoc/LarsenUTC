@@ -87,9 +87,9 @@ class BlogController{
 
 		if($_SERVER['REQUEST_METHOD'] === "POST") {
 			$formValues = $_POST;
-			if($formValidation->validateForm($formValues, 'news', $rules)) {
+			if($formValidation->validateForm($formValues, 'news', $rules)) { //ajoute l'entrée que si le formulaire est valide selon les règles établies
 				if(send_post($formValues)) {
-					header('Location: '.Router::getInstance()->getUrl('accueil'));
+					header('Location: '.Router::getInstance()->getUrl('accueil')); //redirection vers l'accueil
 				}
 				else {
 					$errors = array("Il y a eu une erreur lors de l'insertion veuillez réessayer plus tard");
@@ -99,7 +99,7 @@ class BlogController{
 				$errors = $formValidation->getErrors();
 			}
 		}
-		$token = $formValidation->generateToken('news');
+		$token = $formValidation->generateToken('news'); //protection CRSF
 		
 		include_once('./views/newBlog.php');
 	}

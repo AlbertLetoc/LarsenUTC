@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- ajout des routes sous le format suivant :
+    <route id="nom_de_la_route" path="url_de_la_route">
+        <controller>Nom du controller</controller>
+        <action>Nom de la fonction gérant le code moteur</action>
+        <requirements>
+            <nom_de_la_règle value=""/> /!\les requirements ne sont pas encore gérés par le routeur
+        </requirements>
+    </route>
+    Si besoin de paramètre, mettre le paramètre sous form de :nom_du_paramètre dans l'url de la route
+    ex : /foo/:bar    
+-->
 <routes>
     <route id="accueil" path="/">
         <controller>blog</controller>
