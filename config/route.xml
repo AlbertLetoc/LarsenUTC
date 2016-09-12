@@ -4,6 +4,10 @@
         <controller>blog</controller>
         <action>list</action>
     </route>
+    <route id="newBlog" path="/blog/new">
+        <controller>blog</controller>
+        <action>newPost</action>
+    </route>
     <route id="association_trombi" path="/association/fonctionnement">
         <controller>association</controller>
         <action>trombi</action>

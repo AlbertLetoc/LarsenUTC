@@ -7,6 +7,7 @@ require_once './incl/Pear/Pager-2.4.9/examples/Pager_Wrapper.php';
 require_once './incl/formatHelperFunc.php';
 require_once './incl/Router.php';
 require_once './incl/UserInfo.class.php';
+require_once './incl/FormValidation.class.php';
 
 define ('DATE_D_DEBUT' , "1970-01-01 00:00:00:000");
 define ('DATE_D_FIN' , "2069-12-31 23:59:59:999");

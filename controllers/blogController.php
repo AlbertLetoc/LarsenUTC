@@ -1,5 +1,5 @@
 <?php
-include_once ('./models/M_get_posts.php'); // inclusion du modele
+include_once ('./models/M_posts.php'); // inclusion du modele
 
 class BlogController{
 	public function listAction() {
@@ -66,5 +66,41 @@ class BlogController{
 
 		//appel de la vue
 		include_once('./views/blog.php');
+	}
+
+	public function newPostAction() {
+
+		$formValidation = new FormValidation();
+
+		$rules = array(
+			array(
+				"name" => "title",
+				"regex" => ".+",
+				"error" => "Le titre doit contenir du texte"
+			),
+			array(
+				"name" => "text",
+				"regex" => ".+",
+				"error" => "Le contenu doit contenir du texte"
+			)
+		);
+
+		if($_SERVER['REQUEST_METHOD'] === "POST") {
+			$formValues = $_POST;
+			if($formValidation->validateForm($formValues, 'news', $rules)) {
+				if(send_post($formValues)) {
+					header('Location: '.Router::getInstance()->getUrl('accueil'));
+				}
+				else {
+					$errors = array("Il y a eu une erreur lors de l'insertion veuillez réessayer plus tard");
+				}
+			}
+			else {
+				$errors = $formValidation->getErrors();
+			}
+		}
+		$token = $formValidation->generateToken('news');
+		
+		include_once('./views/newBlog.php');
 	}
 }

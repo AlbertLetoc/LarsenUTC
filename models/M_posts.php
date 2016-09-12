@@ -19,7 +19,7 @@ function get_posts($offset = 0, $limit = 50, $dates){
 	$limit = (int) $limit; // limit: nombre de posts a recuperer au max
 
 	$db = SPDO::getSPDO();
-	$req = $db->prepare('SELECT post_ID, post_title, post_date, post_content, post_author, post_status FROM posts WHERE post_status = "published" AND post_date BETWEEN :debut AND :fin ORDER BY post_date DESC, post_ID ASC LIMIT :offset, :limit');
+	$req = $db->prepare('SELECT * FROM posts WHERE post_status = "published" AND post_date BETWEEN :debut AND :fin ORDER BY post_date DESC, post_ID ASC LIMIT :offset, :limit');
 	$req->bindParam(':debut', (isset($dates[0])) ? $dates[0] : DATE_D_DEBUT, PDO::PARAM_STR);
 	$req->bindParam(':fin', (isset($dates[1])) ? $dates[1] : DATE_D_FIN, PDO::PARAM_STR);
 	$req->bindParam(':offset', $offset, PDO::PARAM_INT);
@@ -89,4 +89,13 @@ function semestre_to_datetime($semestre){
 
 		return array ('debut'=>$debut, 'fin'=>$fin);
 	}
+}
+
+function send_post($postValue) {
+	$db = SPDO::getSPDO();
+	$req = $db->prepare("INSERT INTO posts(post_title, post_date, post_content, post_author, post_status) VALUES (:title, NOW(), :content, :author, 'published')");
+	$req->bindParam(':title', $postValue['news_title']);
+	$req->bindParam(':content', $postValue['news_text']);
+	$req->bindParam(':author', $_SESSION['user']['cas:user']);
+	return $req->execute();
 }
