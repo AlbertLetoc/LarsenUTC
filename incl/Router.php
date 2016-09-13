@@ -37,7 +37,7 @@ class Router {
     //Chargement des routes du fichier xml
     public function loadRoutes() {
         $this->crawler->load($this->configFolder.'/route.xml');
-        foreach($this->crawler->childNodes->item(0)->childNodes as $route) {
+        foreach($this->crawler->getElementsByTagName("routes")->item(0)->childNodes as $route) {
             if($route->nodeName == "route") {  
                 $newRoute = array(
                     "url"=> $route->getAttribute("path"),
