@@ -33,7 +33,7 @@ $router->loadRoutes();
     <body>
         <nav class="nav">
 			<ul>
-				<img src="style/img/logo.png" height="44px" class="logo"/>
+				<img src="/larsenUTC/style/img/logo.png" height="44px" class="logo"/>
 				<li><a href="<?php echo $router->getUrl('accueil'); ?>">Accueil</a></li>
 				<li class="dropdown">
 					<a href="#">L'Association</a>
