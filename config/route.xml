@@ -4,7 +4,7 @@
         <controller>Nom du controller</controller>
         <action>Nom de la fonction gérant le code moteur</action>
         <requirements>
-            <nom_de_la_règle value=""/> /!\les requirements ne sont pas encore gérés par le routeur
+            <nom_de_la_règle value=""/> règle sous forme de regex (sans début ni fin type \d+)
         </requirements>
     </route>
     Si besoin de paramètre, mettre le paramètre sous form de :nom_du_paramètre dans l'url de la route

@@ -55,7 +55,7 @@ class Router {
                         }
                     }
                     if(!empty($requirementsArray)) {
-                        $newRoute["requrements"] = $requirementsArray;
+                        $newRoute["requirements"] = $requirementsArray;
                     }
                 }
                 $this->routes[$route->getAttribute("id")] = $newRoute;
@@ -73,6 +73,10 @@ class Router {
                 $status = true;
                 for($i = 0; $i < count($url); $i++) {
                     if($url[$i] != '' && $url[$i][0] == ':') {
+                        if(array_key_exists(substr($url[$i], 1), $route["requirements"]) && !preg_match("#^".$route["requirements"][substr($url[$i], 1)]."$#",$requestedURL[$i])) {
+                            $status=false;
+                            break;
+                        }
                         $params[substr($url[$i], 1)] = $requestedURL[$i];
                     }
                     elseif($url[$i] != $requestedURL[$i]) {
