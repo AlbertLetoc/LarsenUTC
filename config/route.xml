@@ -19,6 +19,13 @@
         <controller>blog</controller>
         <action>newPost</action>
     </route>
+    <route id="readBlog" path="/blog/:id">
+        <controller>blog</controller>
+        <action>readPost</action>
+        <requirements>
+            <id value="\d+" />
+        </requirements>
+    </route>
     <route id="updateBlog" path="/blog/update/:id">
         <controller>blog</controller>
         <action>updatePost</action>

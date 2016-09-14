@@ -174,4 +174,16 @@ class BlogController{
 		
 		include_once('./views/deleteBlog.php');		
 	}
+
+	public function readPostAction() {
+		$router = Router::getInstance();
+		$post = get_post($router->getParameters()['id']);
+
+		if(!empty($post)) {
+			include_once('./views/readBlog.php');
+		}
+		else {
+			$router->error404Redirection();
+		}
+	}
 }

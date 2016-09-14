@@ -100,22 +100,15 @@ class Router {
             $action = $callRoute["action"].'Action';
         }
         else {
-            include_once($this->controllerFolder.'/'.$this->errorController.'Controller.php');
-            $class = $this->errorController.'Controller';
-            $action = "error404Action";
+            return $this->error404Redirection();
         }
 
         $controller = new $class();
         if(!is_callable(array($controller, $action))) {
-            include_once($this->controllerFolder.$this->errorController.'Controller.php');
-            $class = $this->errorController.'Controller';
-            $action = "error404Action";
-
-            $controller = new $class;
-            $controller->$action();
+            return $this->error404Redirection();
         }
         else {
-            $controller->$action($this->params);
+            return $controller->$action($this->params);
         }
     }
 
@@ -142,5 +135,14 @@ class Router {
             }
             return '/larsenUTC'.$url;
         }
+    }
+
+    public function error404Redirection() {
+        include_once($this->controllerFolder.'/'.$this->errorController.'Controller.php');
+        $class = $this->errorController.'Controller';
+        $action = "error404Action";
+
+        $controller = new $class;
+        return $controller->$action();
     }
 }
