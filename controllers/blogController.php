@@ -103,4 +103,75 @@ class BlogController{
 		
 		include_once('./views/newBlog.php');
 	}
+
+	public function updatePostAction() {
+
+		$formValidation = new FormValidation();
+
+		$router = Router::getInstance();
+
+		$post = get_post($router->getParameters()['id']);
+
+		$rules = array(
+			array(
+				"name" => "title",
+				"regex" => ".+",
+				"error" => "Le titre doit contenir du texte"
+			),
+			array(
+				"name" => "text",
+				"regex" => ".+",
+				"error" => "Le contenu doit contenir du texte"
+			)
+		);
+
+		if($_SERVER['REQUEST_METHOD'] === "POST") {
+			$formValues = $_POST;
+			if($formValidation->validateForm($formValues, 'news', $rules)) { //ajoute l'entrée que si le formulaire est valide selon les règles établies
+				$post['post_title'] = $formValues['news_title'];
+				$post['post_content'] = $formValues['news_text'];
+				if(update_post($post)) {
+					header('Location: '.Router::getInstance()->getUrl('accueil')); //redirection vers l'accueil
+				}
+				else {
+					$errors = array("Il y a eu une erreur lors de l'actualisation veuillez réessayer plus tard");
+				}
+			}
+			else {
+				$errors = $formValidation->getErrors();
+			}
+		}
+		$token = $formValidation->generateToken('news'); //protection CRSF
+		
+		include_once('./views/updateBlog.php');
+	}
+
+	public function deletePostAction() {
+		$formValidation = new FormValidation();
+
+		$router = Router::getInstance();
+
+		$id = $router->getParameters()['id'];
+
+		$rules = array();
+
+		if($_SERVER['REQUEST_METHOD'] === "POST") {
+			$formValues = $_POST;
+			if($formValidation->validateForm($formValues, 'news', $rules)) {
+				if(delete_post($id)) {
+					header('Location: '.Router::getInstance()->getUrl('accueil')); //redirection vers l'accueil					
+				}
+				else {
+					$errors = array("Il y a eu une erreur lors de la suppression veuillez réessayer plus tard");
+				}
+			}
+			else {
+				$errors = $formValidation->getErrors();
+			}
+		}
+		
+		$token = $formValidation->generateToken('news'); //protection CRSF
+		
+		include_once('./views/deleteBlog.php');		
+	}
 }

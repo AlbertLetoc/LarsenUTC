@@ -105,3 +105,28 @@ function send_post($postValue) {
 	$req->bindParam(':author', $_SESSION['user']['cas:user']);
 	return $req->execute();
 }
+
+function get_post($id) {
+	$db = SPDO::getSPDO();
+	$req = $db->prepare("SELECT * FROM posts WHERE post_ID = :id");
+	$req->bindParam(':id',$id);
+	$req->execute();
+	return $req->fetch(PDO::FETCH_ASSOC);
+}
+
+function update_post($post) {
+	$db = SPDO::getSPDO();
+	$req = $db->prepare("UPDATE posts SET post_title = :post_title, post_content = :post_content, post_status = :post_status WHERE post_ID = :id");
+	$req->bindParam(':id', $post['post_ID']);
+	$req->bindParam(':post_title', $post['post_title']);
+	$req->bindParam(':post_content', $post['post_content']);
+	$req->bindParam(':post_status', $post['post_status']);
+	return $req->execute();
+}
+
+function delete_post($id) {
+	$db = SPDO::getSPDO();
+	$req = $db->prepare("DELETE FROM posts WHERE post_ID = :id");
+	$req->bindParam(':id',$id);
+	return $req->execute();
+}

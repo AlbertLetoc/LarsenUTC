@@ -19,6 +19,20 @@
         <controller>blog</controller>
         <action>newPost</action>
     </route>
+    <route id="updateBlog" path="/blog/update/:id">
+        <controller>blog</controller>
+        <action>updatePost</action>
+        <requirements>
+            <id value="\d+" />
+        </requirements>
+    </route>
+    <route id="deleteBlog" path="/blog/delete/:id">
+        <controller>blog</controller>
+        <action>deletePost</action>
+        <requirements>
+            <id value="\d+" />
+        </requirements>
+    </route>
     <route id="association_trombi" path="/association/fonctionnement">
         <controller>association</controller>
         <action>trombi</action>
