@@ -145,4 +145,13 @@ class Router {
         $controller = new $class;
         return $controller->$action();
     }
+
+    public function error403Redirection() {
+        include_once($this->controllerFolder.'/'.$this->errorController.'Controller.php');
+        $class = $this->errorController.'Controller';
+        $action = "error403Action";
+
+        $controller = new $class;
+        return $controller->$action();
+    }
 }

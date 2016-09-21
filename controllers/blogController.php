@@ -69,6 +69,11 @@ class BlogController{
 	}
 
 	public function newPostAction() {
+		if(!array_key_exists('user', $_SESSION) || UserInfo::getRole($_SESSION['user']['cas:user']) != "Resp Comm'")
+		{
+			$router = Router::getInstance();
+			return $router->error403Redirection();
+		}
 
 		$formValidation = new FormValidation();
 
@@ -105,6 +110,11 @@ class BlogController{
 	}
 
 	public function updatePostAction() {
+		if(!array_key_exists('user', $_SESSION) || UserInfo::getRole($_SESSION['user']['cas:user']) != "Resp Comm'")
+		{
+			$router = Router::getInstance();
+			return $router->error403Redirection();
+		}
 
 		$formValidation = new FormValidation();
 
@@ -147,6 +157,11 @@ class BlogController{
 	}
 
 	public function deletePostAction() {
+		if(!array_key_exists('user', $_SESSION) || UserInfo::getRole($_SESSION['user']['cas:user']) != "Resp Comm'")
+		{
+			$router = Router::getInstance();
+			return $router->error403Redirection();
+		}
 		$formValidation = new FormValidation();
 
 		$router = Router::getInstance();
