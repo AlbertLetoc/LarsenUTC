@@ -1,5 +1,4 @@
 <?php 
-var_dump($sidebarFile);
 $sidebarFile = "salles";
 if(isset($salle)) {
 	if($salle == "bas"){
