@@ -18,6 +18,7 @@ $db = SPDO::getSPDO();
 $router = Router::getInstance();
 $router->setFolders('config', 'controllers', 'error');
 $router->loadRoutes();
+$sidebarFile = null;
  ?>
 <!DOCTYPE html>
 <html>
@@ -65,16 +66,20 @@ $router->loadRoutes();
 				<aside class="col-lg-3">
 					<div class="col-md-12">
 						<?php 
-							if (!isset($_GET['section'])){
+							if (!$sidebarFile){
 								include('./controllers/side_bar/C_s_blog.php');
 							}
 							else{
-								if(file_exists('./controllers/side_bar/C_s_'.$_GET['section'].'.php'))
+								if(file_exists('./controllers/side_bar/C_s_'.$sidebarFile.'.php'))
 								{
-									include_once('./controllers/side_bar/C_s_'.$_GET['section'].'.php');
+									include_once('./controllers/side_bar/C_s_'.$sidebarFile.'.php');
+								}
+								else if(file_exists('./views/side_bar/s_'.$sidebarFile.'.php'))
+								{
+									include_once('./views/side_bar/s_'.$sidebarFile.'.php');
 								}
 								else {
-									include('./views/404.php');
+									include_once('./views/404.php');
 								}	
 							}
 						?>
