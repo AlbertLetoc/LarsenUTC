@@ -4,8 +4,9 @@ class UserInfo {
     const key = "F854CjBWe7zQ256zA8Mwdmsv5niF23CL";
 
     public static function getFullName($login) {
-        if(substr(get_headers("https://assos.utc.fr/ginger/v1/".$login."?key=".self::key)[0], 9, 3) == "200") {
-            $infos = json_decode(file_get_contents("https://assos.utc.fr/ginger/v1/".$login."?key=".self::key));
+        $content = @file_get_contents("https://assos.utc.fr/ginger/v1/".$login."?key=".self::key);
+        if($content !== FALSE) {
+            $infos = json_decode($content);
             return $infos->prenom." ".$infos->nom;
         }
         else {
@@ -14,8 +15,9 @@ class UserInfo {
     }
 
     public static function getLastName($login) {
-        if(substr(get_headers("https://assos.utc.fr/ginger/v1/".$login."?key=".self::key)[0], 9, 3) == "200") {
-            $infos = json_decode(file_get_contents("https://assos.utc.fr/ginger/v1/".$login."?key=".self::key));
+        $content = @file_get_contents("https://assos.utc.fr/ginger/v1/".$login."?key=".self::key);
+        if($content !== FALSE) {
+            $infos = json_decode($content);
             return $infos->nom;
         }
         else {
@@ -24,8 +26,9 @@ class UserInfo {
     }
 
     public static function getFirstName($login) {
-        if(substr(get_headers("https://assos.utc.fr/ginger/v1/".$login."?key=".self::key)[0], 9, 3) == "200") {
-            $infos = json_decode(file_get_contents("https://assos.utc.fr/ginger/v1/".$login."?key=".self::key));
+        $content = @file_get_contents("https://assos.utc.fr/ginger/v1/".$login."?key=".self::key);
+        if($content !== FALSE) {
+            $infos = json_decode($content);
             return $infos->prenom;
         }
         else {
