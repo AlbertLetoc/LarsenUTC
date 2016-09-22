@@ -662,15 +662,25 @@ body {
 }
 
 .carousel {
-    height: 250px;
+    height: 322px;
     background: #ffffff;
     box-shadow: 0 2px 4px rgba(0,0,0,0.5);
     margin-bottom: 30px;
+    padding: 0;
+}
+
+.carousel img {
+    width: 100%;
 }
 
 .card {
     margin-bottom: 25px;
     color: #ffffff;
+}
+
+.card a {
+    color: #ffffff;
+    font-weight: bold;
 }
 
 .card-title {

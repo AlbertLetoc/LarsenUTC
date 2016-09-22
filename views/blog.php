@@ -1,5 +1,5 @@
 <div class="col-md-12 carousel">
-    Carousel
+    <img src="/larsenUTC/style/img/slide1.png" />
 </div>
 <div class="jumbotron col-md-12">
     <div class="row">

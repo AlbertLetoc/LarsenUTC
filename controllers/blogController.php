@@ -3,7 +3,7 @@ include_once ('./models/M_posts.php'); // inclusion du modele
 
 class BlogController{
 	public function listAction() {
-		$per_page = 2; // definition du nombre d'articles a afficher par page
+		$per_page = 5; // definition du nombre d'articles a afficher par page
 
 		// selection des articles
 		if ((!isset($_GET['sem'])) and (!isset($_GET['annee']))){ // index

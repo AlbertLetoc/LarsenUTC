@@ -10,17 +10,21 @@
 		<h1>L'association :</h1> Fonctionnement
 	</div>
 </div>
-<?php
-if (is_array($trombi) || is_object($trombi)){ // evite les bugs si aucun membre du bureau inscrit sur le portail des assos
-	foreach($trombi as $membre) { ?>
-		<div class="membre_bureau">
-            <a href="<?php echo $membre['photo']?>"><img class="thumbnail" src="<?php echo $membre['photo']?>"></a>
-            <b><?php echo $membre['login']?></b><br/>
-            <?php echo $membre['role']?>
-		</div>
-		<?php }
-} ?>
+<div class="card row">
+	<div class="card-content col-md-12">
+		<?php
+		if (is_array($trombi) || is_object($trombi)){ // evite les bugs si aucun membre du bureau inscrit sur le portail des assos
+		foreach($trombi as $membre) { ?>
+			<div class="membre_bureau" style="display: inline-block; margin: 20px;">
+				<a href="<?php echo $membre['photo']?>"><img class="thumbnail" src="<?php echo $membre['photo']?>" width="150px;" /></a><br/>
+				<b><?php echo UserInfo::getFullName($membre['login']); ?></b><br/>
+				<?php echo $membre['role']?>
+			</div>
+			<?php }
+		} ?>
 
-<div>
-	 Mais aussi et surtout les 70 membres enthousiastes et exceptionnels qui forment les 22 groupes de Larsen ! <br/> Petite photo de famille
+		<div>
+			Mais aussi et surtout les 70 membres enthousiastes et exceptionnels qui forment les 22 groupes de Larsen ! <br/> Petite photo de famille
+		</div>
+	</div>
 </div>
