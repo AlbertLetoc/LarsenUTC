@@ -842,17 +842,19 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     content: '';
-    width: 100%;
+    width: calc(100% - 0.5rem);
     height: 100%;
     position: absolute;
     top: 0;
-    left: 0;
+    left: 0.5rem;
     z-index: -1;
 }
 
 .event-date {
-    transform: rotate(-9deg);
+    transform: rotate(-6deg);
     transform-origin: center center;
+    overflow: visible;
+    height: 47px;
 }
 
 .event-date span {
