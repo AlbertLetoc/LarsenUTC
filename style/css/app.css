@@ -803,6 +803,16 @@ body {
     margin-bottom: 20px;
 }
 
+.list-module a {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.list-module > .col-md-12 > .row > .col-md-12 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
 .list-module h3 {
     margin: 0;
     line-height: 47px;
