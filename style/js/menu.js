@@ -1,6 +1,6 @@
 $(".dropdown").hover(function () {
-    $(this).children(".dropdown-menu").first().fadeIn();
+    $(this).children(".dropdown-menu").first().fadeIn(0);
 },
 function () {
-    $(this).children(".dropdown-menu").first().fadeOut();
+    $(this).children(".dropdown-menu").first().fadeOut(0);
 });
