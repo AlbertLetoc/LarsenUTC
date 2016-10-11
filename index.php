@@ -33,7 +33,7 @@ $sidebarFile = null;
     </head>
     <body>
         <nav class="nav">
-			<ul>
+			<ul class="container">
 				<a href="<?php echo $router->getUrl('accueil'); ?>"><img src="/larsenUTC/style/img/logo.png" height="44px" class="logo"/></a>
 				<li><a href="<?php echo $router->getUrl('accueil'); ?>">Accueil</a></li>
 				<li class="dropdown">
@@ -50,7 +50,7 @@ $sidebarFile = null;
 						<li><a href="<?php echo $router->getUrl('repet_salle', array('salle' => 'studio')); ?>">Studio Décibels</a></li>
 					</ul>
 				</li>
-				<li><a href="<?php echo $router->getUrl('association_contact'); ?>">Contacts</a></li>
+				<li><a href="<?php echo $router->getUrl('association_contact'); ?>">Contact</a></li>
 				<svg class="user-icon" viewBox="0 0 97 144">
 					<path fill="white" d="M 88.879,99.479 64.875,86.195 C 73.797,79.184 76.22,65.403 76.22,57.678 l 0,-16.083 c 0,-10.648 -14.163,-22.51 -28.389,-22.51 -14.223,0 -28.761,11.862 -28.761,22.51 l 0,16.083 c 0,7.026 2.975,21.239 11.989,28.458 L 6.434,99.479 c 0,0 -6.434,2.863 -6.434,6.435 l 0,9.651 C 0,119.117 2.885,122 6.434,122 l 82.445,0 c 3.552,0 6.438,-2.883 6.438,-6.436 l 0,-9.651 c -10e-4,-3.787 -6.438,-6.434 -6.438,-6.434 z m -1.188,14.904 -80.066,0 0,-6.811 c 0.547,-0.398 1.311,-0.859 1.914,-1.135 0.179,-0.082 0.357,-0.168 0.529,-0.264 L 34.693,92.831 c 2.246,-1.217 3.735,-3.475 3.961,-6.016 0.227,-2.54 -0.834,-5.028 -2.825,-6.624 -6.393,-5.122 -9.133,-16.462 -9.133,-22.514 l 0,-16.082 c 0,-5.471 10.324,-14.893 21.136,-14.893 11.013,0 20.764,9.292 20.764,14.893 l 0,16.083 c 0,5.966 -1.854,17.359 -8.433,22.529 -2.014,1.585 -3.098,4.073 -2.886,6.625 0.216,2.551 1.698,4.824 3.946,6.052 l 24.004,13.282 c 0.212,0.115 0.48,0.242 0.703,0.338 0.563,0.238 1.255,0.637 1.762,0.986 l 0,6.893 z"></path>
 				</svg>
@@ -86,15 +86,40 @@ $sidebarFile = null;
 					</div>
 				</aside>
 			</section>
-			<footer>
-				<ul>
-					<li>Copyright © Larsen 2016 (Clément HENRY, Louis DUPRAT, Aladin TALEB)</li>
-					<li><a href="index.php?section=asso"> L'association</a></li>
-					<li><a href="https://www.facebook.com/larsen.utc"> facebook </a></li>
-					<li><a href="index.php?section=partenaires"> Partenaires </a></li>
-				</ul>
-			</footer>
 		</div>
+		<footer>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="footer-title row">
+						<div class="container">
+							<div class="row">
+								<ul class="col-md-12">
+									<li><a href="index.php?section=asso">A propos</a></li>
+									<li><a href="#">Contact</a></li>
+									<li class="to-right">
+										Suivez nous sur : <img src="/larsenUTC/style/img/logo-fb.png" alt="logo-fb" class="embed-img"/>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="footer-body">
+						<div class="container">
+							<div class="row">
+								<ul class="col-md-10">
+									<li><a href="index.php?section=partenaires">Nos partenaires</a></li>
+	    							<li><img src="/larsenUTC/style/img/logo-bde.jpg" alt="logo-bde"/></li>									
+	    							<li><img src="/larsenUTC/style/img/logo-decibels.png" alt="logo-decibels"/></li>									
+								</ul>
+								<div class="col-md-2 to-right ">
+									Site fait avec amour <3
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
 		<script src="/larsenUTC/style/js/menu.js" type="text/javascript"></script>
 	</body>
 </html>
