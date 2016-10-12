@@ -522,6 +522,20 @@ body {
     margin-right: 10px;
 }
 
+.title a {
+    font-style: italic;
+    text-decoration: underline;
+}
+
+.title .to-right {
+    position: relative;
+    line-height: 45px;
+}
+
+.title > div {
+    display: flex;
+}
+
 .nav {
     position: fixed;
     height: 60px;

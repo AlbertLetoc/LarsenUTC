@@ -16,6 +16,7 @@
 <div class="row title">
     <div class="col-md-12">
         <h1>Les dernières news :</h1>
+        <a href="#" class="to-right">Voir toutes les news</a>
     </div>
 </div>
 <div class="col-md-12">
@@ -59,8 +60,6 @@
                     <?php
                     }
                 }
-
-            echo $posts['links'];
         }
     ?>
     </div>
