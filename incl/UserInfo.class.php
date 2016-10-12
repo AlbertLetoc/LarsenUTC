@@ -53,4 +53,22 @@ class UserInfo {
             return "Ancien";
         }
     }
+
+    public static function isBureau($login) {
+        $listUsers = json_decode(file_get_contents('http://assos.utc.fr/asso/membres.json/larsen'));
+		
+		$membre = null;
+		foreach($listUsers as $struct) {
+			if ($login == $struct->login) {
+				$membre = $struct;
+				break;
+			}
+		}
+        if($membre) {
+            return $membre->bureau;
+        }
+        else {
+            return false;
+        }
+    }
 }

@@ -31,4 +31,14 @@ class AssociationController {
 	public function partenaireAction() {
 		include_once('./views/partenaires.php');
 	}
+
+	public function adminAction() {
+		if(!array_key_exists('user', $_SESSION) || !UserInfo::isBureau($_SESSION['user']['cas:user']))
+		{
+			$router = Router::getInstance();
+			return $router->error403Redirection();
+		}
+
+		include_once('./views/admin.php');
+	}
 }

@@ -597,11 +597,61 @@ a:visited {
 }
 
 .user-icon {
-    position: absolute;
-    top: 0;
-    right: 0;
     height: 60px;
     width: 60px;
+    margin-right: -10px;
+}
+
+.user-overlay {
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+}
+
+.user-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #3d3d3d;
+    width: 30%;
+    color: white;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    /*padding-bottom: 10px;*/
+}
+
+.user-box h3 {
+    margin: 0;
+}
+
+.user-box a {
+    display: block;
+    margin: 10px 0;
+}
+
+.user-box img {
+    margin-top: 20px;
+    border: 5px solid white;
+    box-sizing: border-box;
+}
+
+.user-box-close {
+    position: absolute;
+    top: 1px;
+    right: 2px;
+    cursor: pointer;
+}
+
+.user-box-icon {
+    margin: auto;
+    display: block;
+    width: 120px;
 }
 
 .jumbotron {
@@ -1043,6 +1093,7 @@ footer li {
 .to-right {
     float: right;
     text-align: right !important;
+    margin-left: auto;
 }
 
 ul > .to-right {
@@ -1053,4 +1104,10 @@ ul > .to-right {
     height: 1.365em;
     margin-left: 1rem;
     transform: translateY(25%);
+}
+
+.body-noscroll {
+    width: 100%;
+    position: fixed;
+    overflow-y: scroll;
 }
