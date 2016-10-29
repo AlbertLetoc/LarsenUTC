@@ -1,3 +1,4 @@
+<?php $router = Router::getInstance(); ?>
 <div class="col-md-12 carousel">
     <img src="/larsenUTC/style/img/slide1.png" />
 </div>
@@ -16,7 +17,7 @@
 <div class="row title">
     <div class="col-md-12">
         <h1>Les dernières news :</h1>
-        <a href="#" class="to-right">Voir toutes les news</a>
+        <a href="<?php echo $router->getUrl('listAllBlog'); ?>" class="to-right">Voir toutes les news</a>
     </div>
 </div>
 <div class="col-md-12">
@@ -48,7 +49,7 @@
                                     </div>
                                     <div class="col-md-6 card-author-name">
                                         <span><?php echo UserInfo::getFirstName($post['post_author']); ?></span> <span><?php echo formatName(UserInfo::getLastName($post['post_author'])); ?></span>
-                                        <span><?php echo UserInfo::getRole($post['post_author']); ?></span>
+                                        <span><?php echo UserInfo::getRole($post['post_author'], 'Ancien'); ?></span>
                                     </div>
                                 </div>
                             </div>

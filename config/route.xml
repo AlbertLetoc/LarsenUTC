@@ -19,6 +19,10 @@
         <controller>association</controller>
         <action>admin</action>
     </route>
+    <route id="listAllBlog" path="/blog/all">
+        <controller>blog</controller>
+        <action>listAll</action>
+    </route>
     <route id="newBlog" path="/blog/new">
         <controller>blog</controller>
         <action>newPost</action>

@@ -1,14 +1,38 @@
 <?php
 include_once ('./models/M_posts.php'); // inclusion du modele
+include_once ('./models/M_comment.php'); // inclusion du modele
 
 class BlogController{
 	public function listAction() {
-		$per_page = 5; // definition du nombre d'articles a afficher par page
+		
+		$posts = get_pagination(5, array());
+
+		//securisation de l'affichage
+		/*
+		$post est une copie du tableau $posts créée par le foreach. $post n'existe qu'à l'intérieur du foreach, il est ensuite supprimé. 
+		Pour éviter les failles XSS, il faut agir sur le tableau utilisé à l'affichage, c'est-à-dire $posts
+		*/
+		if (is_array($posts['data']) || is_object($posts['data'])){ // evite les bugs en cas de résultat vide de la requete SQL, comme si par d'articles rédigés dans la periode demandée par ex 
+			//var_dump($posts);
+			foreach($posts['data'] as $key => $post){
+				$posts['data'][$key]['post_title']=secured_OUT_string($post['post_title']);
+				$posts['data'][$key]['post_content']=$post['post_content'];
+				$posts['data'][$key]['post_author']=secured_OUT_string($post['post_author']);
+				$posts['data'][$key]['post_date']= $post['post_date'];
+			}
+		}
+
+		//appel de la vue
+		include_once('./views/blog.php');
+	}
+
+	public function listAllAction() {
+		$per_page = 50; // definition du nombre d'articles a afficher par page
 
 		// selection des articles
 		if ((!isset($_GET['sem'])) and (!isset($_GET['annee']))){ // index
 			$comments = get_comments(0, 15*$per_page, array());
-			$posts = get_pagination($per_page, array()); 
+			$posts = get_posts(0, $per_page, array()); 
 		}
 
 		elseif(isset($_GET['annee'])){ // retourne les posts de l'annee passée en parametre
@@ -19,7 +43,7 @@ class BlogController{
 				$dates['debut'] = $datesP['debut'];
 				$dates['fin'] = $datesA['fin'];
 				$comments = get_comments(0, 15*$per_page, $dates);
-				$posts = get_pagination($per_page, $dates);
+				$posts = get_posts(0, $per_page, $dates);
 			}
 			else{
 				header('Location: ./404.php');
@@ -29,28 +53,29 @@ class BlogController{
 			if(preg_match("/^[aApP]{1}[0-9]{2}$/",$_GET['sem'])){ //securisation de la variable
 				$dates = semestre_to_datetime($_GET['sem']);
 				$comments = get_comments(0, 15*$per_page, $dates);
-				$posts = get_pagination($per_page, $dates);
+				$posts = get_posts(0, $per_page, $dates);
 			}
 			else{
 				header('Location: ./404.php');
 			}
 		}
+
 		//securisation de l'affichage
 		/*
 		$post est une copie du tableau $posts créée par le foreach. $post n'existe qu'à l'intérieur du foreach, il est ensuite supprimé. 
 		Pour éviter les failles XSS, il faut agir sur le tableau utilisé à l'affichage, c'est-à-dire $posts
 		*/
 		if (is_array($posts) || is_object($posts)){ // evite les bugs en cas de résultat vide de la requete SQL, comme si par d'articles rédigés dans la periode demandée par ex 
-			//var_dump($posts['data']);
-			foreach($posts['data'] as $key => $post){
-				$posts['data'][$key]['post_title']=secured_OUT_string($post['post_title']);
-				$posts['data'][$key]['post_content']=$post['post_content'];
-				$posts['data'][$key]['post_author']=secured_OUT_string($post['post_author']);
-				$posts['data'][$key]['post_date']= $post['post_date'];
+			//var_dump($posts);
+			foreach($posts as $key => $post){
+				$posts[$key]['post_title']=secured_OUT_string($post['post_title']);
+				$posts[$key]['post_content']=$post['post_content'];
+				$posts[$key]['post_author']=secured_OUT_string($post['post_author']);
+				$posts[$key]['post_date']= $post['post_date'];
 			}
 		}
 		if (is_array($comments) || is_object($comments)){ // evite les bugs en cas de résultat vide de la requete SQL, comme si par d'articles rédigés dans la periode demandée par ex 
-			//var_dump($posts['data']);
+			//var_dump($posts);
 			$key=0;
 			while (isset($comments[$key])){
 				$comments[$key]['comment_author']=secured_OUT_string($comments[$key]['comment_author']);
@@ -64,12 +89,11 @@ class BlogController{
 			include_once('./controllers/C_comments.php');
 		}
 
-		//appel de la vue
-		include_once('./views/blog.php');
+		include_once('./views/listAll.php');
 	}
 
 	public function newPostAction() {
-		if(!array_key_exists('user', $_SESSION) || UserInfo::getRole($_SESSION['user']['cas:user']) != "Resp Comm'")
+		if(!array_key_exists('user', $_SESSION) || UserInfo::getRole($_SESSION['user']['cas:user'], '') != "Resp Communication")
 		{
 			$router = Router::getInstance();
 			return $router->error403Redirection();
@@ -110,7 +134,7 @@ class BlogController{
 	}
 
 	public function updatePostAction() {
-		if(!array_key_exists('user', $_SESSION) || UserInfo::getRole($_SESSION['user']['cas:user']) != "Resp Comm'")
+		if(!array_key_exists('user', $_SESSION) || UserInfo::getRole($_SESSION['user']['cas:user'], '') != "Resp Communication")
 		{
 			$router = Router::getInstance();
 			return $router->error403Redirection();
@@ -157,7 +181,7 @@ class BlogController{
 	}
 
 	public function deletePostAction() {
-		if(!array_key_exists('user', $_SESSION) || UserInfo::getRole($_SESSION['user']['cas:user']) != "Resp Comm'")
+		if(!array_key_exists('user', $_SESSION) || UserInfo::getRole($_SESSION['user']['cas:user'], '') != "Resp Communication")
 		{
 			$router = Router::getInstance();
 			return $router->error403Redirection();
@@ -192,7 +216,32 @@ class BlogController{
 
 	public function readPostAction() {
 		$router = Router::getInstance();
-		$post = get_post($router->getParameters()['id']);
+		$post = get_post_with_comments_by_id($router->getParameters()['id']);
+
+		$formValidation = new FormValidation();
+
+		if(isset($_SESSION['user']) && $_SERVER['REQUEST_METHOD'] == "POST") {
+			$formValues = $_POST;
+			$rules = array(
+				array(
+					"name" => "content",
+					"regex" => ".+",
+					"error" => "Le contenu doit contenir du texte"
+				)
+			);
+			if($formValidation->validateForm($formValues, 'comment', $rules)) {
+				$formValues['post_ID'] = $router->getParameters()['id'];
+				$formValues['comment_author'] = $_SESSION['user']['cas:user'];
+				if(send_comment($formValues)) {
+					header('Location: '.Router::getInstance()->getUrl('readBlog', array('id'=> $router->getParameters()['id'])));
+				}
+				else {
+					$errors = array("Il y a eu une erreur lors de la suppression veuillez réessayer plus tard");
+				}
+			}
+		}
+
+		$token = $formValidation->generateToken('comment');
 
 		if(!empty($post)) {
 			include_once('./views/readBlog.php');

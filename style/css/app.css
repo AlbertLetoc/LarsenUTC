@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -517,7 +521,7 @@ body {
 .title h1 {
     font-size: 1.8em;
     margin: 0;
-    display: inline;
+    display: inline-block;
     font-style: normal;
     margin-right: 10px;
 }
@@ -532,8 +536,9 @@ body {
     line-height: 45px;
 }
 
-.title > div {
+.title div {
     display: flex;
+    align-items: baseline;
 }
 
 .nav {
@@ -762,6 +767,10 @@ a:visited {
     z-index: 3;
 }
 
+.card-title a {
+    color: inherit;
+}
+
 .card-title > .col-md-10 {
     position: relative
 }
@@ -858,6 +867,51 @@ a:visited {
     left: 0.5rem;
     font-style: italic;
     font-size: 0.85em;
+}
+
+.comment {
+    margin-bottom: 10px;
+    padding: 0;
+    color: #ffffff;
+}
+
+.comment-info {
+    border-image-source: linear-gradient(to right, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.05));
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-image-slice: 1;
+}
+
+.comment-author {
+    font-weight: bold;
+}
+
+.comment-author-role {
+    font-size: 0.85em;
+    font-style: italic;
+}
+
+.comment-date {
+    font-size : 0.857em;
+    font-weight: 600;
+    color: #b3b3b3;;
+}
+
+.comment-textarea {
+    padding-right: 0;
+}
+
+.comment-textarea textarea {
+    min-height: 57px;
+}
+
+.form textarea, input {
+    width: 100%;
+    font-family: 'Source Sans Pro';
+}
+
+.form textarea {
+    resize: vertical;
 }
 
 .list-module {
