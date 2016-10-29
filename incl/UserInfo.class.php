@@ -36,7 +36,7 @@ class UserInfo {
         }
     }
 
-    public static function getRole($login) {
+    public static function getRole($login, $errorMessage) {
         $listUsers = json_decode(file_get_contents('http://assos.utc.fr/asso/membres.json/larsen'));
 		
 		$membre = null;
@@ -50,7 +50,7 @@ class UserInfo {
             return $membre->role;
         }
         else {
-            return "Ancien";
+            return $errorMessage;
         }
     }
 

@@ -11,7 +11,7 @@ class UserController {
             {
                 $_SESSION['user'] = $user;
                 $_SESSION['ticket'] = $_GET['ticket'];
-                $_SESSION['role'] = UserInfo::getRole($_SESSION['user']['cas:user'],"larsen");
+                $_SESSION['role'] = UserInfo::getRole($_SESSION['user']['cas:user'],'');
                 header('Location: ./');
             }
             else CAS::login();
