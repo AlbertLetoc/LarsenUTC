@@ -76,5 +76,9 @@
         <controller>association</controller>
         <action>partenaires</action>
     </route>
+    <route id="eventList" path="/event">
+        <controller>event</controller>
+        <action>list</action>
+    </route>
 </routes>
     

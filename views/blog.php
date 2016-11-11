@@ -38,7 +38,7 @@
                                 </div>
                             </div>
                             <div class="col-md-10">
-                                <h3><?php echo $post['post_title']; ?></h3>
+                                <h3><a href="<?php echo $router->getUrl('readBlog', array('id' => $post['post_ID'])); ?>"><?php echo $post['post_title']; ?></a></h3>
                             </div>
                         </div>
                         <div class="row card-content">
