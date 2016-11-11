@@ -125,8 +125,8 @@ $sidebarFile = null;
 						<div class="container">
 							<div class="row">
 								<ul class="col-md-12">
-									<li><a href="index.php?section=asso">A propos</a></li>
-									<li><a href="#">Contact</a></li>
+									<li><a href="<?php echo $router->getUrl('association_presentation'); ?>">A propos</a></li>
+									<li><a href="<?php echo $router->getUrl('association_contact'); ?>">Contact</a></li>
 									<li class="to-right">
 										Suivez nous sur : <a href='https://www.facebook.com/larsen.utc'><img src="/larsenUTC/style/img/logo-fb.png" alt="logo-fb" class="embed-img"/></a>
 									</li>
