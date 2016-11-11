@@ -12,11 +12,11 @@
                 <div class="row">
                     <div class="col-md-5 event-date">
                         <div class="row">
-                            <?php echo '<div class="col-md-6"><span class="event-date-day">'.date('d', strtotime($event['date'])).'</span></div><div class="col-md-6"><span class="event-date-month">'.utf8_encode(strftime('%b', strtotime($event['date']))).'</span><span class="event-date-year">\''.date('y', strtotime($event['date'])).'</span></div>'; ?>
+                            <?php echo '<div class="col-md-6"><span class="event-date-day">'.date('d', strtotime($event['date_event'])).'</span></div><div class="col-md-6"><span class="event-date-month">'.utf8_encode(strftime('%b', strtotime($event['date_event']))).'</span><span class="event-date-year">\''.date('y', strtotime($event['date_event'])).'</span></div>'; ?>
                         </div>
                     </div>
                     <div class="col-md-7">
-                        <span class="event-name"><?php echo $event['name']; ?></span>
+                        <span class="event-name"><?php echo $event['nom']; ?></span>
                         <span class="event-place">@<?php echo $event['lieu']; ?></span>
                     </div>
                 </div>

@@ -1,21 +1,6 @@
-<?php 
-$events = array(
-    array(
-        "name" => "Jam Session",
-        "lieu" => "Macadam",
-        "date" => "2016-09-02 12:16:27"
-    ),
-    array(
-        "name" => "Jam Session 2",
-        "lieu" => "Macadam",
-        "date" => "2016-09-02 12:16:27"
-    ),
-    array(
-        "name" => "Jam Session 3",
-        "lieu" => "Macadam",
-        "date" => "2016-09-02 12:16:27"
-    )
-);
+<?php
+include_once('./models/side_bar/M_events.php');
+$events = get_events(0,3);
 
 $records = array(
     array(
