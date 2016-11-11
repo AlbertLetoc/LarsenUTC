@@ -855,6 +855,8 @@ a:visited {
 .card-author-name {
     padding-left: 0.5rem;
     position: relative;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .card-author-name > span:nth-child(2) {
@@ -862,7 +864,6 @@ a:visited {
 }
 
 .card-author-name > span:last-child {
-    position: absolute;
     bottom: 0;
     left: 0.5rem;
     font-style: italic;
@@ -1027,7 +1028,6 @@ a:visited {
 
 .event-name {
     font-weight: 500;
-    font-size: 1.125em;
 }
 
 .event-place {
