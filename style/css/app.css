@@ -1137,8 +1137,11 @@ footer li {
     font-size: 0.875em;
 }
 
-.footer-body a {
+.footer-body .text-link {
     position: absolute;
+}
+
+.footer-body a {
     top: 50%;
     transform: translateY(-50%);
 }

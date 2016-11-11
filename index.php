@@ -128,7 +128,7 @@ $sidebarFile = null;
 									<li><a href="index.php?section=asso">A propos</a></li>
 									<li><a href="#">Contact</a></li>
 									<li class="to-right">
-										Suivez nous sur : <img src="/larsenUTC/style/img/logo-fb.png" alt="logo-fb" class="embed-img"/>
+										Suivez nous sur : <a href='https://www.facebook.com/larsen.utc'><img src="/larsenUTC/style/img/logo-fb.png" alt="logo-fb" class="embed-img"/></a>
 									</li>
 								</ul>
 							</div>
@@ -138,9 +138,9 @@ $sidebarFile = null;
 						<div class="container">
 							<div class="row">
 								<ul class="col-md-10">
-									<li><a href="index.php?section=partenaires">Nos partenaires</a></li>
-	    							<li><img src="/larsenUTC/style/img/logo-bde.jpg" alt="logo-bde"/></li>									
-	    							<li><img src="/larsenUTC/style/img/logo-decibels.png" alt="logo-decibels"/></li>									
+									<li><a class="text-link" href="<?php echo $router->getUrl('partenaires'); ?>">Nos partenaires</a></li>
+	    							<li><a href='https://assos.utc.fr/'><img src="/larsenUTC/style/img/logo-bde.jpg" alt="logo-bde"/></a></li>									
+	    							<li><a href='https://assos.utc.fr/decibels/'><img src="/larsenUTC/style/img/logo-decibels.png" alt="logo-decibels"/></a></li>									
 								</ul>
 								<div class="col-md-2 to-right ">
 									Site fait avec amour <3

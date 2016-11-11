@@ -28,7 +28,7 @@ class AssociationController {
 		include_once('./views/contacts.php');
 	}
 
-	public function partenaireAction() {
+	public function partenairesAction() {
 		include_once('./views/partenaires.php');
 	}
 

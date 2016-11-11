@@ -72,5 +72,9 @@
         <controller>user</controller>
         <action>logout</action>
     </route>
+    <route id="partenaires" path="/partenaires">
+        <controller>association</controller>
+        <action>partenaires</action>
+    </route>
 </routes>
     

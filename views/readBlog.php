@@ -26,7 +26,7 @@
             <div class="col-md-2 card-author">
                 <div class="row">
                     <div class="col-md-6 card-author-img">
-                        <img src="https://demeter.utc.fr/pls/portal30/portal30.get_photo_utilisateur?username=<?php echo $_SESSION['user']['cas:user'] ?>" alt="Photo auteur"/>
+                        <img src="https://demeter.utc.fr/pls/portal30/portal30.get_photo_utilisateur?username=<?php echo $post['post_author'] ?>" alt="Photo auteur"/>
                     </div>
                     <div class="col-md-6 card-author-name">
                         <span><?php echo UserInfo::getFirstName($post['post_author']); ?></span> <span><?php echo formatName(UserInfo::getLastName($post['post_author'])); ?></span>
