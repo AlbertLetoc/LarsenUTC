@@ -37,7 +37,7 @@ $sidebarFile = null;
 				<a href="<?php echo $router->getUrl('accueil'); ?>"><img src="/larsenUTC/style/img/logo.png" height="44px" class="logo"/></a>
 				<li><a href="<?php echo $router->getUrl('accueil'); ?>">Accueil</a></li>
 				<li class="dropdown">
-					<a href="#">L'Association</a>
+					<a href="<?php echo $router->getUrl('association_trombi'); ?>">L'Association</a>
 					<ul class="dropdown-menu">
 						<li><a href="<?php echo $router->getUrl('association_trombi'); ?>">Fonctionnement</a></li>
 						<li><a href="<?php echo $router->getUrl('association_presentation'); ?>">Historique</a></li>

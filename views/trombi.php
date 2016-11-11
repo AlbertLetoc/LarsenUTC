@@ -23,8 +23,8 @@
 			<?php }
 		} ?>
 
-		<div>
-			Mais aussi et surtout les 70 membres enthousiastes et exceptionnels qui forment les 22 groupes de Larsen ! <br/> Petite photo de famille
-		</div>
+		<h2>
+			Mais aussi et surtout la centaine de membres enthousiastes et exceptionnels qui forment les 23 groupes de Larsen ! <br/> 
+		</h2>
 	</div>
 </div>
