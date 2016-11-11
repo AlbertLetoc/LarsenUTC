@@ -16,8 +16,10 @@
                         </div>
                     </div>
                     <div class="col-md-7">
-                        <span class="event-name"><?php echo $event['nom']; ?></span>
-                        <span class="event-place">@<?php echo $event['lieu']; ?></span>
+                        <div class="row">
+                            <span class="event-name col-md-12"><?php echo $event['nom']; ?></span>
+                            <span class="event-place col-md-12">@<?php echo $event['lieu']; ?></span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -49,8 +51,10 @@
                         ?>
                     </div>
                     <div class="col-md-9 record-info">
-                        <span class="record-name"><?php echo $record['name']; ?></span>
-                        <span class="record-artist"><?php echo $record['artist']; ?></span>
+                        <div class="row">
+                            <span class="record-name col-md-12"><?php echo $record['name']; ?></span>
+                            <span class="record-artist col-md-12"><?php echo $record['artist']; ?></span>
+                        </div>
                     </div>
                 </div>
             </div>
