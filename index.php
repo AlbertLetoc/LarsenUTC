@@ -152,5 +152,6 @@ $sidebarFile = null;
 			</div>
 		</footer>
 		<script src="/larsenUTC/style/js/menu.js" type="text/javascript"></script>
+		<script src="/larsenUTC/style/js/changePictureOnError.js" type="text/javascript"></script>
 	</body>
 </html>
