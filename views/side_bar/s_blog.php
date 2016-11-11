@@ -2,7 +2,7 @@
     <div class="col-md-12">
         <div class="row list-module-title">
             <div class="col-md-12">
-                <h3>Évènements</h3>
+                <h3><a href='<?php echo $router->getUrl('eventList'); ?>'>Évènements</a></h3>
             </div>
         </div>
         <div class="row">

@@ -54,6 +54,56 @@ class UserInfo {
         }
     }
 
+    public static function priorityRole($role){
+        switch ($role) {
+            case 'Président':
+                $priority=1;
+                break;
+            
+             case 'Vice-président':
+                $priority=2;
+                break;
+            
+             case 'Trésorier':
+                $priority=3;
+                break;
+            
+             case 'Secrétaire':
+                $priority=4;
+                break;
+            
+             case 'Resp Communication':
+                $priority=5;
+                break;
+            
+             case 'Resp Logistique':
+                $priority=6;
+                break;
+            
+             case 'Resp Anim\'':
+                $priority=7;
+                break;
+            
+             case 'Resp Partenariat':
+                $priority=8;
+                break;
+            
+             case 'Resp Matos':
+                $priority=9;
+                break;
+            
+             case 'Resp\' Bières':
+                $priority=10;
+                break;
+            
+            default:
+                $priority=1000;
+                break;
+        }
+
+        return $priority;
+    }
+
     public static function isBureau($login) {
         $listUsers = json_decode(file_get_contents('http://assos.utc.fr/asso/membres.json/larsen'));
 		

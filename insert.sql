@@ -255,3 +255,7 @@ Alors une petite présentation s'impose!\n
 -21h20 : Zipper!!\n\n
 
 Regarde leur ptite présentation sur Larsen Mutin, ils sont tous CHAUDS comme la braise por vous faire passer une soirée de folie!");
+
+insert into events (nom, date_event, lieu, description) values ("30 ans Larsen", "2016-11-26", "Picasso", "to come...");
+insert into events (nom, date_event, lieu, description) values ("Gala UTC", "2016-11-19", "Hippodrome de Chantilly", "");
+insert into events (nom, date_event, lieu, description) values ("Concert de rentrée First Rage", "2017-03-02", "Ziquodrome", "");

@@ -8,7 +8,7 @@
             <h2>Larsen, l'association qui réunit les musiciens de l'UTC depuis 30 ans</h2>
         </div>
         <div class="col-md-3">
-            <a>Découvrir l'Association</a>
+            <a href='<?php echo $router->getUrl('association_presentation'); ?>'>Découvrir l'Association</a>
         </div>
     </div>
 </div>

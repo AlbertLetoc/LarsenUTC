@@ -1,9 +1,11 @@
 <?php
+include_once('./incl/UserInfo.class.php');
 class AssociationController {
 	public function trombiAction() {
 		$url="http://assos.utc.fr/asso/membres.json/larsen";
 		$listUsers = json_decode(file_get_contents($url));
 		$trombi = array();
+		$sort = array();
 		foreach($listUsers as $struct) {
 				$filename= "https://demeter.utc.fr/portal/pls/portal30/portal30.get_photo_utilisateur?username=".$struct->login;
 				if ($struct->role != "Membre"){
@@ -13,6 +15,8 @@ class AssociationController {
 					"photo" => $filename
 					);
 				array_push($trombi, $membre);
+				array_push($sort, UserInfo::priorityRole($membre['role']));
+				array_multisort($sort, $trombi);
 				}
 		}
 
