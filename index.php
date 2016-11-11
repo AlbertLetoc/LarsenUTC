@@ -44,7 +44,7 @@ $sidebarFile = null;
 					</ul>
 				</li>
 				<li class="dropdown">
-					<a href="#">Répéter</a>
+					<a href="<?php echo $router->getUrl('repet_salle', array('salle' => 'all')); ?>">Répéter</a>
 					<ul class="dropdown-menu">
 						<li><a href="<?php echo $router->getUrl('repet_salle', array('salle' => 'bas')); ?>">Salle du Pic</a></li>
 						<li><a href="<?php echo $router->getUrl('repet_salle', array('salle' => 'studio')); ?>">Studio Décibels</a></li>
