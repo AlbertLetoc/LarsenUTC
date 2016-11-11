@@ -225,3 +225,44 @@ TRUNCATE TABLE taxonomy;
 INSERT INTO taxonomy (taxonomy_ID, taxonomy_name) VALUES(1, 'evenements');
 INSERT INTO taxonomy (taxonomy_ID, taxonomy_name) VALUES(2, 'Orga asso');
 COMMIT;
+
+insert into events (nom, date_event, lieu, description) values ("Utcéenne", "2016-09-30", "Parc Astérix", "");
+insert into events (nom, date_event, lieu, description) values ("Journée Des Associations", "2016-09-15", "Maison Des Etudiants", " LARSEN FÊTE SES 30 ANS!
+Viens nous voir à notre stand Larsen, en haut de la MDE, à côté du studio Décibels! On t'attend tout chaud!!!\n
+Ah et pour ton info :\n\n
+
+Fondée le 26 novembre 1986, cela fera cet automne trente ans qu'elle rythme la vie des étudiants utcéens. Pour l'occasion Larsen souhaite marquer le coup!\n\n
+
+Larsen c'est quoi? C'est une asso de passionnés de musique, quasi tous musiciens, qui s'occupe de les rassembler dans leur passion, en formant des groupes et en leur donnant les moyens de répéter dans de bonnes conditions, en faisant leur promotion et leur permettant de jouer sur les plus belles scenes étudiantes et extérieures de la région (IF, ziquodrome, ovalies, Tigre etc...).\n\n
+
+Larsen peut aussi mettre en place un ""groupe supervisé"" pour des débutants qui souhaiteraient être encadrés par un ancien dans leurs répets!\n\n
+
+De nombreux groupes issus de Larsen ont pu jouer l'année dernière lors d'évênements UTCéens tels que la soirée Gigot bitume, le WEI, les Vieilles Pipettes, la SDF, le Gala, les Jams dans les bars, l'UTCéenne, les Ovalies à Beauvais, le tremplin CROUS, et les perms au PIC!! (et bien d'autres encore! )\n\n
+Autant d'endroits où tu pourras nous faire réver par ton talent musical cette année en venant t'inscrire à Larsen! ");
+insert into events (nom, date_event, lieu, description) values ("Amphi de présentation", "2016-09-22", "FA201", " Salut salut! \n\n
+
+Pour ceux qui n'auraient pas vu/reçu le mail : nous avons décalé l'amphi de présentation Larsen Décibels Piano ut! Il aura lieu :\n\n
+
+JEUDI 22/09 à 18H30 en FA201\n\n
+
+On refera une présentation de Larsen, et on parlera de tous nos projets pour ce semestre, le fonctionnement de l'asso et de la salle de répète, la mise en place de cours, les postes à pourvoir à Larsen, bref TOUT ce que vous avez besoin de savoir ;) \n\n
+
+Venez nombreux!");
+
+
+insert into events (nom, date_event, lieu, description) values ("Soirée Esperanto", "2016-10-19", "Clap café", "");
+insert into events (nom, date_event, lieu, description) values ("Estu Parking", "2016-09-13", "Parking BF", "Yo les beaux, grands et forts Utcéens(éennes)! Ce soir c'est l'Estu Parking, et cela rime avec : un max de musique! Alors pour ton plus grand plaisir, ce soir, Larsen participera à l'estu de 18h30 à 21h30! Puis Alexis doche de 19h50 à 20h30 et les Sombreheros de 20h30 à 21h30!!! Alors venez nombreux, les amplis se préchauffent eux, et ça va être génial! ");
+
+insert into events (nom, date_event, lieu, description) values ("Concert N3rdistan", "2016-11-10", "Salle St-Gobain, Thourotte", "");
+insert into events (nom, date_event, lieu, description) values ("NEM", "2016-10-14", "Ziquodrome", " POW POW POW, devine quels artistes fantastiques vont jouer ce Vendredi 14 octobre à la NEM????\n
+Des zicos tout beaux tout frais ! ;)\n
+Alors une petite présentation s'impose!\n
+-19h30 : Akindé! Un artiste beatboxer et chanteur à part entière et de plus seul sur scène! (ils en a des b...belles notes à vous faire découvrir ;) )\n\n
+
+-20h15 : Bro Colis!!\n\n
+
+-20h45 : ChillPunk!!\n\n
+
+-21h20 : Zipper!!\n\n
+
+Regarde leur ptite présentation sur Larsen Mutin, ils sont tous CHAUDS comme la braise por vous faire passer une soirée de folie!");

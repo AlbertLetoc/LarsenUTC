@@ -97,6 +97,14 @@ CREATE TABLE `taxonomy` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='la taxonomy représente les tags d''un post';
 
 
+create table events (
+  ID bigint primary KEY AUTO_INCREMENT,
+  nom varchar(255),
+  date_event date,
+  lieu varchar(255),
+  description text
+);
+
 --
 -- Index pour la table `comments`
 --
