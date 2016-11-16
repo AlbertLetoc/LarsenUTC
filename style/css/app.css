@@ -927,11 +927,6 @@ a:visited {
     font-weight: bold;
 }
 
-.list-module > .col-md-12 > .row > .col-md-12 {
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
 .list-module h3 {
     margin: 0;
     color: #8e8e8e; 
@@ -942,12 +937,13 @@ a:visited {
 .list-module-title {
     height: 47px;
     background: rgba(0, 0, 0, 0.9);
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .list-row {
     height: 70px;
     position: relative;
-    display: flex;
     align-items: center;
     flex-wrap: wrap;
     align-content: center;
@@ -962,6 +958,10 @@ a:visited {
     position: absolute;
     bottom: 0;
     left: 1rem;
+}
+
+.list-row > .row {
+    height: 100%;
 }
 
 .event-date:before {
@@ -982,6 +982,7 @@ a:visited {
     transform-origin: center center;
     overflow: visible;
     height: 47px;
+    align-self: center;
 }
 
 .event-date span {
@@ -1024,6 +1025,12 @@ a:visited {
     flex-wrap: wrap;
     align-content: center;
     padding-right: 1rem;
+}
+
+.event-info {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .event-name {

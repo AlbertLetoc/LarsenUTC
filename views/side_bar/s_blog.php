@@ -16,7 +16,7 @@
                         </div>
                     </div>
                     <div class="col-md-7">
-                        <div class="row">
+                        <div class="row event-info">
                             <span class="event-name col-md-12"><?php echo $event['nom']; ?></span>
                             <span class="event-place col-md-12">@<?php echo $event['lieu']; ?></span>
                         </div>
