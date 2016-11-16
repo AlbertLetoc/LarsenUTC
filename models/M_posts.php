@@ -108,8 +108,8 @@ function get_post_with_comments_by_id($id) {
 function get_comments($offset = 0, $limit = 50, $dates){
 	$db = SPDO::getSPDO();
 	$req = $db->prepare('SELECT comment_ID, comment_post_ID, comment_author, comment_date, comment_status, comment_content, post_date FROM comments, posts WHERE comment_post_ID=post_ID AND comment_status = "published" AND post_date BETWEEN :debut AND :fin ORDER BY post_date DESC, comment_ID ASC LIMIT :offset, :limit');
-	$req->bindParam(':debut', (isset($dates[0])) ? $dates[0] : DATE_D_DEBUT, PDO::PARAM_STR);
-	$req->bindParam(':fin', (isset($dates[1])) ? $dates[1] : DATE_D_FIN, PDO::PARAM_STR);
+	$req->bindParam(':debut', (isset($dates[0])) ? $dates[0] : DATE_D_DEBUT);
+	$req->bindParam(':fin', (isset($dates[1])) ? $dates[1] : DATE_D_FIN);
 	$req->bindParam(':offset', $offset, PDO::PARAM_INT);
 	$req->bindParam(':limit', $limit, PDO::PARAM_INT);
 	$req->execute();
