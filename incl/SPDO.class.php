@@ -55,8 +55,8 @@ class SPDO extends PDO
     parent::__construct('mysql:host='.self::DEFAULT_SQL_HOST.';dbname='.self::DEFAULT_SQL_DTB ,self::DEFAULT_SQL_USER ,self::DEFAULT_SQL_PASS); // appel du construction de la classe mere (PDO)
     $this->exec("SET NAMES 'UTF8'"); 
     $this->exec("SET CHARACTER SET 'utf8'"); 
-    $this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // mode debug: activation des warnings
-    $this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION ); // mode debug: activation des exceptions
+    //$this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // mode debug: activation des warnings
+    //$this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION ); // mode debug: activation des exceptions
   }
 
  
