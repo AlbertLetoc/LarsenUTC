@@ -89,42 +89,42 @@ $sidebarFile = null;
 		</div>
 		<div class="container">
 			<section class="row">
-				<article class="col-lg-9">
+				<article class="col-md-9 col-xs-12">
 				<?php
 				$router->matchRoute();
 			?>
 				</article>
-				<aside class="col-lg-3">
-					<div class="col-md-12">
-						<?php 
-							if (!$sidebarFile){
-								include('./controllers/side_bar/C_s_blog.php');
-							}
-							else{
-								if(file_exists('./controllers/side_bar/C_s_'.$sidebarFile.'.php'))
-								{
-									include_once('./controllers/side_bar/C_s_'.$sidebarFile.'.php');
-								}
-								else if(file_exists('./views/side_bar/s_'.$sidebarFile.'.php'))
-								{
-									include_once('./views/side_bar/s_'.$sidebarFile.'.php');
-								}
-								else {
-									include_once('./views/404.php');
-								}	
-							}
-						?>
-					</div>
+				<aside class="col-md-3 col-xs-12">
+                    <div class="row">
+                        <?php
+                            if (!$sidebarFile){
+                                include('./controllers/side_bar/C_s_blog.php');
+                            }
+                            else{
+                                if(file_exists('./controllers/side_bar/C_s_'.$sidebarFile.'.php'))
+                                {
+                                    include_once('./controllers/side_bar/C_s_'.$sidebarFile.'.php');
+                                }
+                                else if(file_exists('./views/side_bar/s_'.$sidebarFile.'.php'))
+                                {
+                                    include_once('./views/side_bar/s_'.$sidebarFile.'.php');
+                                }
+                                else {
+                                    include_once('./views/404.php');
+                                }
+                            }
+                        ?>
+                    </div>
 				</aside>
 			</section>
 		</div>
 		<footer>
 			<div class="row">
-				<div class="col-md-12">
+				<div class="col-xs-12">
 					<div class="footer-title row">
 						<div class="container">
 							<div class="row">
-								<ul class="col-md-12">
+								<ul class="col-xs-12">
 									<li><a href="<?php echo $router->getUrl('association_presentation'); ?>">A propos</a></li>
 									<li><a href="<?php echo $router->getUrl('association_contact'); ?>">Contact</a></li>
 									<li class="to-right">
@@ -137,12 +137,12 @@ $sidebarFile = null;
 					<div class="footer-body">
 						<div class="container">
 							<div class="row">
-								<ul class="col-md-10">
+								<ul class="col-xs-10">
 									<li><a class="text-link" href="<?php echo $router->getUrl('partenaires'); ?>">Nos partenaires</a></li>
 	    							<li><a href='https://assos.utc.fr/'><img src="/larsenUTC/style/img/logo-bde.jpg" alt="logo-bde"/></a></li>									
 	    							<li><a href='https://assos.utc.fr/decibels/'><img src="/larsenUTC/style/img/logo-decibels.png" alt="logo-decibels"/></a></li>									
 								</ul>
-								<div class="col-md-2 to-right ">
+								<div class="col-xs-2 to-right ">
 									Site fait avec amour <3
 								</div>
 							</div>
