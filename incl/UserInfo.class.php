@@ -47,7 +47,14 @@ class UserInfo {
 			}
 		}
         if($membre) {
-            return $membre->role;
+            switch($membre->role) {
+                case "Resp Communication":
+                    return "Resp Comm'";
+                case "Vice-président":
+                    return "Vice-prez'";
+                default:
+                    return $membre->role;
+            }
         }
         else {
             return $errorMessage;
