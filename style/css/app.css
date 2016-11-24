@@ -2,6 +2,16 @@
     box-sizing: border-box;
 }
 
+@media (min-height: 768px) {
+    body {
+        overflow-y: scroll;
+    }
+}
+
+html {
+    min-height: 100%;
+}
+
 body {
     margin: 0;
     font-family: 'Source Sans Pro', serif;
@@ -9,17 +19,22 @@ body {
     background: url(../img/background.png) no-repeat fixed;
     background-size: cover;
     font-size: 16px;
+    min-height: 100%;
+    overflow-x: hidden;
 }
 
 .container {
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
 }
 
 .row {
     display: flex;
     flex-wrap: wrap;
-    margin-left: -1rem;
-    margin-right: -1rem;
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
 }
 
 .col-xs-1,
@@ -49,8 +64,8 @@ body {
 .col-xs-offset-12 {
     box-sizing: border-box;
     flex: 0 0 auto;
-    padding-right: 1rem;
-    padding-left: 1rem;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
 }
 
 .col-xs-1 {
@@ -238,8 +253,8 @@ body {
     .col-sm-offset-12 {
         box-sizing: border-box;
         flex: 0 0 auto;
-        padding-right: 1rem;
-        padding-left: 1rem;
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
     }
 
     .col-sm-1 {
@@ -383,8 +398,8 @@ body {
     .col-md-offset-12 {
         box-sizing: border-box;
         flex: 0 0 auto;
-        padding-right: 1rem;
-        padding-left: 1rem;
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
     }
 
     .col-md-1 {
@@ -528,8 +543,8 @@ body {
     .col-lg-offset-12 {
         box-sizing: border-box;
         flex: 0 0 auto;
-        padding-right: 1rem;
-        padding-left: 1rem;
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
     }
 
     .col-lg-1 {
@@ -674,11 +689,6 @@ body {
     line-height: 45px;
 }
 
-.title div {
-    display: flex;
-    align-items: baseline;
-}
-
 .nav {
     position: fixed;
     height: 60px;
@@ -696,6 +706,8 @@ body {
     height: 60px;
     background-color: rgba(97, 97, 97, 0.52);
     padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .nav li {
@@ -882,15 +894,16 @@ a:visited {
 }
 
 .carousel {
-    height: 322px;
     background: #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     margin-bottom: 30px;
-    padding: 0;
+    padding: 0 0 37%;
+    position: relative;
 }
 
 .carousel img {
     width: 100%;
+    position: absolute;
 }
 
 .card {
@@ -905,6 +918,7 @@ a:visited {
 .card-title {
     height: 50px;
     background: rgba(226, 74, 74, 0.59);
+    overflow:hidden;
 }
 
 .card-title h3 {
@@ -1173,7 +1187,7 @@ a:visited {
     align-items: center;
     flex-wrap: wrap;
     align-content: center;
-    padding-right: 1rem;
+    padding-right: 0.5rem;
 }
 
 .event-info {
@@ -1246,8 +1260,6 @@ footer {
     height: 130px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
 }
 
 footer .footer-title {
@@ -1275,6 +1287,14 @@ footer .footer-title {
     list-style: none;
 }
 
+@media (max-width: 767px) {
+    .footer-title .container{
+        width: 100%;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
 footer ul {
     margin: 0;
 }
@@ -1288,7 +1308,6 @@ footer li {
     height: 56px;
     width: 86px;
     margin-top: 12px;
-    margin-right: 20px;
     font-size: 0.875em;
 }
 

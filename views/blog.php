@@ -1,5 +1,5 @@
 <?php $router = Router::getInstance(); ?>
-<div class="col-md-12 carousel hidden-md-down">
+<div class="col-xs-12 carousel">
     <img src="/larsenUTC/style/img/slide1.png" />
 </div>
 <div class="jumbotron col-md-12 hidden-md-down">
@@ -32,16 +32,16 @@
                 ?>
                     <div class="col-xs-12 card">
                         <div class="row card-title">
-                            <div class="col-xs-2 card-date">
+                            <div class="col-sm-2 hidden-xs-down card-date">
                                 <div class="row">
                                  <?php echo
-                                     '<div class="col-sm-6">
-                                        <svg height="100%" viewBox="0 0 100 100">
+                                     '<div class="col-xs-6">
+                                        <svg class="hidden-xs-down" height="100%" viewBox="0 0 100 100">
                                             <polygon points="0 0, 50 50, 0 100" fill="#ffffff" stroke="#ffffff"></polygon>
                                         </svg>
                                         <span class="card-date-day">'.date('d', strtotime($post['post_date'])).'</span>
                                      </div>
-                                     <div class="col-sm-6">
+                                     <div class="col-xs-6">
                                         <div class="row">
                                             <span class="card-date-month col-xs-12">'.utf8_encode(strftime('%b', strtotime($post['post_date']))).'</span>
                                             <span class="card-date-year col-xs-12">'.date('Y', strtotime($post['post_date'])).'</span>
@@ -49,7 +49,7 @@
                                      </div>'; ?>
                                 </div>
                             </div>
-                            <div class="col-sm-10">
+                            <div class="col-sm-10 col-xs-12">
                                 <h3><a href="<?php echo $router->getUrl('readBlog', array('id' => $post['post_ID'])); ?>"><?php echo $post['post_title']; ?></a></h3>
                             </div>
                         </div>

@@ -1,4 +1,4 @@
-<div class="col-xs-6 col-md-12">
+<div class="col-sm-6 col-md-12 col-xs-12">
     <div class="list-module">
         <div class="col-xs-12">
             <div class="row list-module-title">
@@ -30,7 +30,7 @@
         </div>
     </div>
 </div>
-<div class="col-md-12 col-xs-6">
+<div class="col-sm-6 col-md-12 col-xs-12">
     <div class="list-module">
         <div class="col-xs-12">
             <div class="row list-module-title">
