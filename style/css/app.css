@@ -1356,3 +1356,26 @@ ul > .to-right {
     position: fixed;
     overflow-y: scroll;
 }
+
+.trombi {
+    margin-bottom:20px;
+    text-align: center;
+}
+
+.trombi-border {
+    border-radius: 50%;
+    width: 90%;
+    border: 1px solid black;
+    overflow: hidden;
+    position: relative;
+    padding-top: 90%;
+    height: auto;
+    margin: auto;
+}
+
+.trombi-border img {
+    width: 100%;
+    position: absolute;
+    top: -10px;
+    left: 0;
+}
